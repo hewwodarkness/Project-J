@@ -1,0 +1,44 @@
+/* BODY */
+
+body {
+    background-color: #0d1117;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* MENU */
+
+.menu {
+    background-color: #161b22;
+    height: 50px;
+    vertical-align: middle;
+}
+
+.url {
+    margin-left: 20px;
+    height: 50px;
+    line-height: 50px;
+    font-size: 25px;
+    color:aliceblue;
+}
+
+/* INTRO */
+
+.intro {
+    margin-left: auto;
+    margin-right: auto;
+    width: 1300px;
+}
+
+
+/* MAIN */
+
+.main1 {
+    width: 1300px;
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
