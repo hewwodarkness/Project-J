@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/main.css">
-    <title>Document</title>
+    <title>Main page</title>
 </head>
 <body>
     
@@ -73,10 +73,25 @@
                     <!-- Modal -->
 
                 </div>
+                
+                <div class="post-comments">
+
+                </div>
             </div>
 
             <div class="tags">
-                fwfdw
+                <div class="tag-anime">
+                        
+                </div>
+                <div class="tag-anime">
+                        
+                </div>
+                <div class="tag-anime">
+                        
+                </div>
+                <div class="tag-anime">
+                        
+                </div>
             </div>  
 
         

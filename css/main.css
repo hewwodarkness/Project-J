@@ -26,7 +26,7 @@ body {
 /* INTRO */
 
 .intro {
-    width: 1300px;
+    width: 1000px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -35,8 +35,9 @@ body {
 /* MAIN */
 
 .main1 {
-    width: 1300px;
     display: flex;
+    background-color: #161b22;
+    margin-top: 50px;
     
 }
 
@@ -50,6 +51,9 @@ body {
     height: 50px;
 }
 
+.user-username {
+    color:aliceblue;
+}
 .drop {
     display: none;
     background-color: white;
@@ -59,19 +63,27 @@ body {
 
 .user-post:hover .drop{
     display: block;
-    
   }
-  
 
 
 /* Post */
 
+.posts {
+  width: 70%;
+  margin-left: 30px;
+  margin-top: 20px;
+}
 
 .post-image {
     height: 400px;
     background-size:contain;
 }
 
+.post-comments {
+  width: 50px;
+  height: 20px;
+  background-color: yellow;
+}
 /* Modal */
 
 #myImg:hover {opacity: 0.7;}
@@ -144,4 +156,18 @@ body {
     .modal-content {
       width: 100%;
     }
+  }
+
+
+  /* TAGS */
+
+  .tags {
+    width: 30%;
+  } 
+
+  .tag-anime {
+    height: 100px;
+    width: 200px;
+    background-color: brown;
+    margin-bottom: 10px;
   }
