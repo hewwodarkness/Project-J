@@ -7,17 +7,10 @@
     <title>Main page</title>
 </head>
 <body>
-<div id='mouseTarget'>
- <ul id="unorderedList">
-  <li>No events yet!</li>
- </ul>
-</div>
 
     <div class="menu">
 
-        <div class="url">
-            Joyreactor
-        </div>
+        <h3 class="logo">Joy<span>Reactor</span></h3>
 
     </div>
 
@@ -38,7 +31,7 @@
                             <p>No_feelings</p>
                         </div>
                         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-                        <script src="js/user-info3.js"></script>
+                        <script src="js/user-info4.js"></script>
             
                     </div>
                     
@@ -109,7 +102,7 @@
                             Girl
                         </div>
                     </div>
-                    <img class="post-image" id="myImg" alt="KEKW" src=http://img10.joyreactor.cc/pics/post/Anime-t-bone-%2806tbone%29-Ruler-%28FateApocrypha%29-FateApocrypha-6480014.jpeg>
+                    <img class="post-image" id="myImg1" alt="KEKW" src=http://img10.joyreactor.cc/pics/post/Anime-t-bone-%2806tbone%29-Ruler-%28FateApocrypha%29-FateApocrypha-6480014.jpeg>
                     
                     <!-- Modal -->
 
@@ -124,7 +117,7 @@
                         var modal = document.getElementById('myModal');
 
                         // Get the image and insert it inside the modal - use its "alt" text as a caption
-                        var img = document.getElementById('myImg');
+                        var img = document.getElementById('myImg1');
                         var modalImg = document.getElementById("img01");
                         var captionText = document.getElementById("caption");
                         img.onclick = function(){
