@@ -7,7 +7,11 @@
     <title>Main page</title>
 </head>
 <body>
-    
+<div id='mouseTarget'>
+ <ul id="unorderedList">
+  <li>No events yet!</li>
+ </ul>
+</div>
 
     <div class="menu">
 
@@ -33,7 +37,12 @@
                         <div class="user-username">
                             <p>No_feelings</p>
                         </div>
+                        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+                        <script src="js/user-info3.js"></script>
+            
                     </div>
+                    
+                    
                     <div class="post-tags">
                         <div class="post-tag">
                             Anime
@@ -157,8 +166,6 @@
 
 
     </div>
-
-
 
 </body>
 </html>
