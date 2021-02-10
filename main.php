@@ -23,11 +23,11 @@
 
     $sql_select = "SELECT * FROM post ORDER BY post_id LIMIT $limit OFFSET $offset";
     $result = mysqli_query($conn, $sql_select);
-    $row1 = mysqli_fetch_all($result, MYSQLI_ASSOC);
+    $row = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
-    $sql_select1 = "SELECT * FROM post ORDER BY post_id LIMIT $limit OFFSET $offset";    
+    $sql_select1 = "SELECT * FROM tags WHERE post_id";    
     $result1 = mysqli_query($conn, $sql_select1);
-    $row = mysqli_fetch_all($result1, MYSQLI_ASSOC);
+    $row1 = mysqli_fetch_all($result1, MYSQLI_ASSOC);
 
     
 ?>
@@ -43,7 +43,7 @@
                     <?php foreach($row as $row): ?>
                         <div class="user-post">
                             <img class="user-pfp" src="http://img0.joyreactor.cc/pics/avatar/user/310186">
-                            
+
                             <div class="user-username">
                                 <p>No_feelings</p>
                             </div>
@@ -55,16 +55,20 @@
                         
                         <div class="post-tags">
                             <div class="post-tag">
-                                Anime
+                                <?=$row1['post_id']?>
                             </div>
-                            <div class="post-tag">
-                                Girl
-                            </div>
+                            <?php foreach($row1 as $row1): ?>
+                                <div class="post-tag">
+                                    Girl
+                                </div>
+                                <?php endforeach; ?>
                         </div>
                         <div>
-                            <p> <?=$row['text']?>
+                            <p>
+                                <?=$row['text']?>
+                            </p>
                         </div>
-                        <img class="post-image" id="myImg" alt="KEKW" src="uploads/<?=$row['image']?>" >
+                        <img class="post-image" id="<?=$row['text']?>" alt="KEKW" src="uploads/<?=$row['image']?>" >
                         
                         <!-- Modal -->
 
@@ -79,7 +83,7 @@
                             var modal = document.getElementById('myModal');
 
                             // Get the image and insert it inside the modal - use its "alt" text as a caption
-                            var img = document.getElementById('myImg');
+                            var img = document.getElementById('<?=$row['text']?>');
                             var modalImg = document.getElementById("img01");
                             var captionText = document.getElementById("caption");
                             img.onclick = function(){
@@ -90,24 +94,31 @@
 
                             // Get the <span> element that closes the modal
                             var span = document.getElementsByClassName("close")[0];
+                            var div1 = document.getElementsByClassName("modal-content")[0];
+                            var div2 = document.getElementsByClassName("modal")[0];
 
                             // When the user clicks on <span> (x), close the modal
                             span.onclick = function() {
                             modal.style.display = "none";
                             }
 
+                            div1.onclick = function() {
+                            modal.style.display = "none";
+                            }
+
+                            div2.onclick = function() {
+                            modal.style.display = "none";
+                            }
+
                         </script>
+
+                        <div class="post-comments">
+                            <p>Comments</p>
+                        </div>
+
                     <?php endforeach; ?>
-                    <!-- Modal -->
 
-
-                    <div class="post-comments">
-                        <p>Comments</p>
-                    </div>
                 </div>
-
-                
-
                 
             </div>
 
@@ -122,7 +133,7 @@
         </div>
 
 
-    </div>
+    </div> 
 
 </body>
 </html>
