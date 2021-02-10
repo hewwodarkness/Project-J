@@ -44,9 +44,9 @@ p {
     margin-left: auto;
     margin-right: auto;
     overflow: hidden;
-  transform-origin: left;
-  transform-style: preserve-3d;
-  transition: 0.5s;
+    transform-origin: left;
+    transform-style: preserve-3d;
+    transition: 0.5s;
 }
 
 .intro.active {
