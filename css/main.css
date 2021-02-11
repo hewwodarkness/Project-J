@@ -119,6 +119,11 @@ p {
     margin-bottom: 10px;
 }
 
+.post-bottom {
+  display: flex;
+
+}
+
 .post-comments {
   width: fit-content;
   background-color: #30363d;
@@ -212,7 +217,7 @@ p {
 
   /* TAGS */
 
-  .tags {
+  .tags-rightside {
     width: 300px;
     margin-top: 20px;
     text-align: right;

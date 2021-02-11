@@ -18,19 +18,41 @@
     include("db_conn1.php");
 
     $page = isset($_GET['page']) ? $_GET['page']: 1;
-    $limit = 2;
+    $limit = 5;
     $offset = $limit * ($page - 1);
 
-    $sql_select = "SELECT * FROM post ORDER BY post_id LIMIT $limit OFFSET $offset";
+    $sql_select =  "SELECT * 
+                    FROM post 
+                    order by post_id DESC
+                    LIMIT $limit OFFSET $offset";
     $result = mysqli_query($conn, $sql_select);
     $row = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
-    $sql_select1 = "SELECT * FROM tags WHERE post_id";    
-    $result1 = mysqli_query($conn, $sql_select1);
-    $row1 = mysqli_fetch_all($result1, MYSQLI_ASSOC);
-
     
-?>
+    // $sql_select2 = "SELECT *
+    //                 FROM post
+    //                 LEFT JOIN post_tags
+    //                 ON post.post_id = post_tags.post_id
+    //                 LEFT JOIN tags
+    //                 ON post_tags.tag_id = tags.tag_id
+    //                 WHERE post.post_id = post_tags.post_id";    
+
+  
+    //$row2 = mysqli_fetch_all($result1, MYSQLI_ASSOC);
+
+//     <?php
+//     $sql_select1 = "SELECT distinct c.tag_name
+//     from post_tags g 
+//     inner join post b 
+//     on g.post_id = b.post_id
+//     inner join tags c 
+//     on g.tag_id = c.tag_id";
+//     $result1 = mysqli_query($conn, $sql_select1);
+//     while ($row1 = mysqli_fetch_assoc($result1))
+//         {
+//             echo "<p>" . $row1['tag_name'] . "</p>";
+//         } 
+// ?>
 
     <div class="intro">
 
@@ -41,6 +63,7 @@
             <div class="posts">
                 <div class="post">
                     <?php foreach($row as $row): ?>
+                    
                         <div class="user-post">
                             <img class="user-pfp" src="http://img0.joyreactor.cc/pics/avatar/user/310186">
 
@@ -53,15 +76,27 @@
                         </div>
                         
                         
-                        <div class="post-tags">
-                            <div class="post-tag">
-                                <?=$row1['post_id']?>
-                            </div>
-                            <?php foreach($row1 as $row1): ?>
-                                <div class="post-tag">
-                                    Girl
-                                </div>
-                                <?php endforeach; ?>
+                        <div class="post-tags">   
+
+                            
+                                <?php
+                                $myid = $row['post_id'];
+                                $sql_select1 = "SELECT distinct c.tag_name
+                                from post_tags g 
+                                inner join post b 
+                                on g.post_id = '$myid'
+                                inner join tags c 
+                                on g.tag_id = c.tag_id";
+                                $result1 = mysqli_query($conn, $sql_select1);
+                                    while ($row1 = mysqli_fetch_assoc($result1))
+                                        {
+                                            echo "<div class=\"post-tag\">";
+                                            echo "<p>" . $row1['tag_name'] . "</p>";
+                                            echo "</div>";
+                                        } 
+                                ?>
+                                <?=$row['post_id'] ?? ""?>
+                            
                         </div>
                         <div>
                             <p>
@@ -111,9 +146,15 @@
                             }
 
                         </script>
+                        <div class="post-bottom">
 
-                        <div class="post-comments">
-                            <p>Comments</p>
+                            <div class="post-comments">
+                                <p>Comments</p>
+                            </div>
+                            <div class="dateC">
+                                <p><?=$row['dateCreated']?></p>
+                            </div>
+
                         </div>
 
                     <?php endforeach; ?>
@@ -122,11 +163,11 @@
                 
             </div>
 
-            <div class="tags">
-            <img class="tag-anime" src="1.jpg">
-            <img class="tag-anime" src="1.jpg">
-            <img class="tag-anime" src="1.jpg">
-            <img class="tag-anime" src="1.jpg">
+            <div class="tags-rightside">
+                <img class="tag-anime" src="1.jpg">
+                <img class="tag-anime" src="1.jpg">
+                <img class="tag-anime" src="1.jpg">
+                <img class="tag-anime" src="1.jpg">
             </div>  
 
         
