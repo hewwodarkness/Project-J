@@ -101,6 +101,7 @@ p {
   display: flex;
   margin-bottom: 10px;
 }
+
 .post-tag {
   width:fit-content;
   background-color: #30363d;
@@ -112,6 +113,12 @@ p {
   padding-right: 12px;
 }
 
+.post-text {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: 15px;
+}
+
 .post-image {
     height: 400px;
     width: 100%;
@@ -121,10 +128,11 @@ p {
 
 .post-bottom {
   display: flex;
-
+  align-items: center;
+  margin-bottom: 20px;
 }
 
-.post-comments {
+.post-comments. {
   width: fit-content;
   background-color: #30363d;
   border-radius: 40px;
@@ -133,11 +141,24 @@ p {
   padding-bottom: 10px;
   padding-left: 28px;
   padding-right: 28px;
-  margin-bottom: 20px;
+}
+
+.post-comments.active{
+  width: fit-content;
+  background-color: #7397c0;
+  border-radius: 40px;
+  margin-right: 12px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 28px;
+  padding-right: 28px;
+}
+
+.dateC {
 
 }
 
-/* Modal */
+   /* Modal */
 
 #myImg:hover {opacity: 0.7;}
 

@@ -82,11 +82,11 @@
                                 <?php
                                 $myid = $row['post_id'];
                                 $sql_select1 = "SELECT distinct c.tag_name
-                                from post_tags g 
-                                inner join post b 
-                                on g.post_id = '$myid'
-                                inner join tags c 
-                                on g.tag_id = c.tag_id";
+                                                from post_tags g 
+                                                inner join post b 
+                                                on g.post_id = '$myid'
+                                                inner join tags c 
+                                                on g.tag_id = c.tag_id";
                                 $result1 = mysqli_query($conn, $sql_select1);
                                     while ($row1 = mysqli_fetch_assoc($result1))
                                         {
@@ -95,10 +95,10 @@
                                             echo "</div>";
                                         } 
                                 ?>
-                                <?=$row['post_id'] ?? ""?>
+                                <!-- <?=$row['post_id'] ?? ""?> -->
                             
                         </div>
-                        <div>
+                        <div class="post-text">
                             <p>
                                 <?=$row['text']?>
                             </p>
@@ -122,9 +122,9 @@
                             var modalImg = document.getElementById("img01");
                             var captionText = document.getElementById("caption");
                             img.onclick = function(){
-                            modal.style.display = "block";
-                            modalImg.src = this.src;
-                            captionText.innerHTML = this.alt;
+                                modal.style.display = "block";
+                                modalImg.src = this.src;
+                                captionText.innerHTML = this.alt;
                             }
 
                             // Get the <span> element that closes the modal
@@ -148,11 +148,60 @@
                         </script>
                         <div class="post-bottom">
 
-                            <div class="post-comments">
-                                <p>Comments</p>
+                            <div class="post-comments" id="<?=$row['comment_id']?>">
+                                <p>
+                                    Comments
+                                </p>
                             </div>
+
+
+                            <div class="block-comments">
+                                
+                                
+                                <?php
+                                    $myid = $row['post_id'];
+                                    $sql_select1 = "SELECT distinct c.comment_text
+                                                    from post_comments g 
+                                                    inner join post b 
+                                                    on g.post_id = '$myid'
+                                                    inner join comments c 
+                                                    on g.comment_id = c.comment_id";
+                                    $result1 = mysqli_query($conn, $sql_select1);
+                                        while ($row1 = mysqli_fetch_assoc($result1))
+                                            {
+                                                echo "<div class=\"post-tag\">";
+                                                echo "<p>" . $row1['comment_text'] . "</p>";
+                                                echo "</div>";
+                                            }  
+                                ?>
+
+
+                            </div>
+
+
+                            <script>
+
+                                var comm1 = document.getElementById('<?=$row['comment_id']?>');
+                                var comm2 = document.getElementsByClassName("post-comments")[0];
+                                
+                                
+                                comm1.onclick = function() {
+                                comm1.style.display = "none";
+                                }
+
+                                comm1.addEventListener("click", () => {
+                                    comm2.classList.toggle("active");
+                                });
+                                var div2 = document.getElementsByClassName("modal")[0];
+
+
+                            </script>
+
+
                             <div class="dateC">
-                                <p><?=$row['dateCreated']?></p>
+                                <p>
+                                    <?=$row['dateCreated']?>
+                                </p>
                             </div>
 
                         </div>
