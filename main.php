@@ -147,14 +147,20 @@
 
                         </script>
                         <div class="post-bottom">
+                            <div class="comments_and_date">
+                                
+                                <div class="post-comments" id="<?=$row['comment_id']?>">
+                                    <p>
+                                        Comments
+                                    </p>
+                                </div>
 
-                            <div class="post-comments" id="<?=$row['comment_id']?>">
-                                <p>
-                                    Comments
-                                </p>
+                                <div class="dateC">
+                                    <p>
+                                        <?=$row['dateCreated']?>
+                                    </p>
+                                </div>
                             </div>
-
-
                             <div class="block-comments">
                                 
                                 
@@ -181,28 +187,22 @@
 
                             <script>
 
-                                var comm1 = document.getElementById('<?=$row['comment_id']?>');
-                                var comm2 = document.getElementsByClassName("post-comments")[0];
+                                // var comm1 = document.getElementById('<?=$row['comment_id']?>');
+                                // var comm2 = document.getElementsByClassName("post-comments")[0];
                                 
                                 
-                                comm1.onclick = function() {
-                                comm1.style.display = "none";
-                                }
+                                // comm1.onclick = function() {
+                                // comm1.style.display = "none";
+                                // }
 
-                                comm1.addEventListener("click", () => {
-                                    comm2.classList.toggle("active");
-                                });
-                                var div2 = document.getElementsByClassName("modal")[0];
+                                // comm1.addEventListener("click", () => {
+                                //     comm2.classList.toggle("active");
+                                // });
+                                // var div2 = document.getElementsByClassName("modal")[0];
 
 
                             </script>
-
-
-                            <div class="dateC">
-                                <p>
-                                    <?=$row['dateCreated']?>
-                                </p>
-                            </div>
+                           
 
                         </div>
 

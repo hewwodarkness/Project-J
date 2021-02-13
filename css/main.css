@@ -127,12 +127,16 @@ p {
 }
 
 .post-bottom {
-  display: flex;
   align-items: center;
   margin-bottom: 20px;
 }
 
-.post-comments. {
+.comments_and_date {
+  display: flex;
+  align-items: center;
+}
+
+.post-comments {
   width: fit-content;
   background-color: #30363d;
   border-radius: 40px;
