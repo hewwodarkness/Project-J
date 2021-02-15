@@ -7,23 +7,43 @@
     <title>Main page</title>
 </head>
 <body>
-
+    <?php
+        session_start();
+        if (!$_SESSION['user']) {
+            header('Location: /');
+        }
+    ?>
     <div class="menu">
+        <div>
+            <h3 class="logo">Joy<span>Reactor</span></h3>
+        </div>
+        <div class="menu-form">
+            <a href="form.php">
+                <p>
+                    Создать пост
 
-        <h3 class="logo">Joy<span>Reactor</span></h3>
-
+                </p>
+            </a>
+        </div>
+        <div class="user-menu">
+            <img class="user-menu-pfp" src="<?= $_SESSION['user']['avatar']?>">
+            <p lass="user-menu-name">
+                <?= $_SESSION['user']['full_name']?>
+            </p>
+            <a href="vendor/logout.php" class="logout">Выход</a>
+        </div>
     </div>
     
     <?php
     include("db_conn1.php");
 
     $page = isset($_GET['page']) ? $_GET['page']: 1;
-    $limit = 5;
+    $limit = 10;
     $offset = $limit * ($page - 1);
 
     $sql_select =  "SELECT * 
                     FROM post 
-                    order by post_id DESC
+                    order by dateCreated ASC
                     LIMIT $limit OFFSET $offset";
     $result = mysqli_query($conn, $sql_select);
     $row = mysqli_fetch_all($result, MYSQLI_ASSOC);
@@ -58,18 +78,6 @@
 
         <div></div>
         <div></div>
-        <?php
-            session_start();
-            if (!$_SESSION['user']) {
-                header('Location: /');
-            }
-        ?>
-        <form>
-            <img src="<?= $_SESSION['user']['avatar'] ?>" width="200" alt="">
-            <h2 style="margin: 10px 0;"><?= $_SESSION['user']['full_name'] ?></h2>
-            <a href="#"><?= $_SESSION['user']['email'] ?></a>
-            <a href="vendor/logout.php" class="logout">Выход</a>
-        </form>
         <div class="main1">
             <div class="posts">
                 <div class="post">
@@ -79,10 +87,24 @@
                             <img class="user-pfp" src="http://img0.joyreactor.cc/pics/avatar/user/310186">
 
                             <div class="user-username">
-                                <p>No_feelings</p>
+                                <?php
+                                    $myid2 = $row['post_id'];
+                                    $sql_select2 = "SELECT distinct b.full_name
+                                                    from post a
+                                                    inner join users b 
+                                                    on a.user_id = b.id
+                                                    WHERE a.post_id = '$myid2'";
+                                    $result2 = mysqli_query($conn, $sql_select2);
+                                        while ($row2 = mysqli_fetch_assoc($result2))
+                                            {
+                                                echo "<p>" . $row2['full_name'] . "</p>";
+                                            } 
+                                ?>
                             </div>
-                            <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-                            <script src="js/user-info4.js"></script>
+                            <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js">
+                            </script>
+                            <script src="js/user-info4.js">
+                            </script>
                 
                         </div>
                         

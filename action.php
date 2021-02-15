@@ -1,5 +1,16 @@
 <?php include "db_conn1.php"; ?>
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Авторизация и регистрация</title>
+    <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+
 <?php
+session_start();
 $img_name = $_FILES['my_image']['name'];
 $img_size = $_FILES['my_image']['size'];
 $tmp_name = $_FILES['my_image']['tmp_name'];
@@ -13,7 +24,7 @@ if ($error === 0) {
         $img_ex = pathinfo($img_name, PATHINFO_EXTENSION);
         $img_ex_lc = strtolower($img_ex);
 
-        $allowed_exs = array("jpg", "jpeg", "png","gif"); 
+        $allowed_exs = array("jpg", "jpeg", "png", "PNG", "gif"); 
 
         if (in_array($img_ex_lc, $allowed_exs)) {
             $new_img_name = uniqid("IMG-", true).'.'.$img_ex_lc;
@@ -24,14 +35,19 @@ if ($error === 0) {
             
                 $post_id = abs( crc32( uniqid() ) );;;
                // $dateCreated = $_POST["dpi"];
-                
+                $user_id = $_SESSION['user']['id'];
                 $text = $_POST["text"];
+                $post_rating = 1111;
 
 
 
-            $sql = "INSERT INTO `post` (`post_id`, `comments_id`, `tags_id`, 
-                                        `image`, `text`)
-            VALUES ('$post_id', '$post_id', '$post_id', '$new_img_name', '$text')";
+
+            $sql = "INSERT INTO `post` (`post_id`, `user_id`, `comment_id`, `tags_id`, `post_rating`, `image`, `text`)
+                    VALUES             ('$post_id', '$user_id', '$post_id', '$post_id', '$post_rating', '$new_img_name', '$text')";
+            if ($sql === FALSE)
+                echo "Ошибка записи в базу: ".mysqli_error($sql);
+            else
+                echo 'Вы успешно зарегистрированы! <a href="main.php">На главную</a>';
             mysqli_query($conn, $sql);
         } else {
             $em = "You can't upload files of this type";

@@ -7,10 +7,21 @@
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
+        <?php
+            session_start();
+            if (!$_SESSION['user']) {
+                header('Location: /');
+            }
+        ?>
+            <img src="<?= $_SESSION['user']['avatar'] ?>" width="200" alt="">
+            <h2 style="margin: 10px 0;"><?= $_SESSION['user']['full_name'] ?></h2>
+            <a href="#"><?= $_SESSION['user']['email'] ?></a>
+            <?php
+                print_r($_SESSION['user']['id']);
+            ?>
+            <a href="vendor/logout.php" class="logout">Выход</a>
     <php>
     <form name="feedback" method="POST" action="action.php" enctype="multipart/form-data">
-    <?php
-    ?>
       <div class="intro">
           <div class="features">
               <div class="features__item">

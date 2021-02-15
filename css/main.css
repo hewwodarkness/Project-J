@@ -19,6 +19,7 @@ p {
     background-color: #161b22;
     height: 50px;
     vertical-align: middle;
+    display: flex;
 }
 
 .logo {
@@ -34,6 +35,28 @@ p {
 
 .logo span {
   font-weight: 300;
+}
+
+.user-menu {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  position: absolute;
+  right: 0;
+}
+
+.menu-form {
+  display: flex;
+  align-items: center;
+
+}
+
+.user-menu-pfp {
+  width: 50px;
+}
+
+.user-menu-name {
+  width: 50px;
 }
 
 

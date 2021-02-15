@@ -18,7 +18,7 @@
             "email" => $user['email']
         ];
 
-        header('Location: ../profile.php');
+        header('Location: ../main.php');
 
     } else {
         $_SESSION['message'] = 'Не верный логин или пароль';
