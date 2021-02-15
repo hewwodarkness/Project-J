@@ -133,20 +133,20 @@
 
                             
                                 <?php
-                                $myid = $row['post_id'];
-                                $sql_select1 = "SELECT distinct c.tag_name
-                                                from post_tags g 
-                                                inner join post b 
-                                                on g.post_id = '$myid'
-                                                inner join tags c 
-                                                on g.tag_id = c.tag_id";
-                                $result1 = mysqli_query($conn, $sql_select1);
-                                    while ($row1 = mysqli_fetch_assoc($result1))
-                                        {
-                                            echo "<div class=\"post-tag\">";
-                                            echo "<p>" . $row1['tag_name'] . "</p>";
-                                            echo "</div>";
-                                        } 
+                                    $myid = $row['post_id'];
+                                    $sql_select1 = "SELECT distinct c.tag_name
+                                                    from post_tags g 
+                                                    inner join post b 
+                                                    on g.post_id = '$myid'
+                                                    inner join tags c 
+                                                    on g.tag_id = c.tag_id";
+                                    $result1 = mysqli_query($conn, $sql_select1);
+                                        while ($row1 = mysqli_fetch_assoc($result1))
+                                            {
+                                                echo "<div class=\"post-tag\">";
+                                                echo "<p>" . $row1['tag_name'] . "</p>";
+                                                echo "</div>";
+                                            } 
                                 ?>
                                 <!-- <?=$row['post_id'] ?? ""?> -->
                             
@@ -202,7 +202,7 @@
                         <div class="post-bottom">
                             <div class="comments_and_date">
                                 
-                                <div class="post-comments" id="<?=$row['comment_id']?>">
+                                <div class="post-comments">
                                     <p>
                                         Comments
                                     </p>
@@ -214,26 +214,29 @@
                                     </p>
                                 </div>
                             </div>
-                            <div class="block-comments">
+                            <div class="block-comments" id="<?=$row['comment_id']?>">
                                 
                                 
                                 <?php
                                     $myid = $row['post_id'];
-                                    $sql_select1 = "SELECT distinct c.comment_text
+                                    $sql_select1 = "SELECT distinct c.comment_text, c.user_id, c.comment_id
                                                     from post_comments g 
                                                     inner join post b 
                                                     on g.post_id = '$myid'
                                                     inner join comments c 
                                                     on g.comment_id = c.comment_id";
                                     $result1 = mysqli_query($conn, $sql_select1);
+                                   
                                         while ($row1 = mysqli_fetch_assoc($result1))
                                             {
-                                                echo "<div class=\"post-tag\">";
+                                                echo $row1['comment_id'];
+                                                echo "<div class=\"block-comments-one\">";
                                                 echo "<p>" . $row1['comment_text'] . "</p>";
+                                                    
                                                 echo "</div>";
+                                                
                                             }  
                                 ?>
-
 
                             </div>
 
@@ -252,6 +255,18 @@
                                 //     comm2.classList.toggle("active");
                                 // });
                                 // var div2 = document.getElementsByClassName("modal")[0];
+
+                               
+                            // Get the modal
+                            
+
+                            // Get the image and insert it inside the modal - use its "alt" text as a caption
+                            // var img2 = document.getElementById('<?=$row['comment_id']?>');
+                            
+                            // img2.onclick = function(){
+                            //     img2.style.display = "none";
+                                
+                            // }
 
 
                             </script>

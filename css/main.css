@@ -159,6 +159,7 @@ p {
 .comments_and_date {
   display: flex;
   align-items: center;
+  margin-bottom: 10px;
 }
 
 .post-comments {
@@ -185,6 +186,18 @@ p {
 
 .dateC {
 
+}
+
+.block-comments-one {
+  background-color: #30363d;
+  width: 100%;
+  height: max-content;
+  margin-bottom: 5px;
+  padding: 10px;
+}
+
+.block-comments-one-user-info {
+  display: flex;
 }
 
    /* Modal */
