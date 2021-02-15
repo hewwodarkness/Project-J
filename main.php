@@ -9,9 +9,13 @@
 <body>
     <?php
         session_start();
-        if (!$_SESSION['user']) {
-            header('Location: /');
+
+        if ($_SESSION['user']) {
+            header('Location: ');
         }
+        else 
+            header('Location: vendor/signin.php');
+
     ?>
     <div class="menu">
         <div>
@@ -43,7 +47,7 @@
 
     $sql_select =  "SELECT * 
                     FROM post 
-                    order by dateCreated ASC
+                    order by dateCreated DESC
                     LIMIT $limit OFFSET $offset";
     $result = mysqli_query($conn, $sql_select);
     $row = mysqli_fetch_all($result, MYSQLI_ASSOC);
@@ -84,7 +88,23 @@
                     <?php foreach($row as $row): ?>
                     
                         <div class="user-post">
-                            <img class="user-pfp" src="http://img0.joyreactor.cc/pics/avatar/user/310186">
+                        
+                            <img class="user-pfp" 
+                                src="
+                                    <?php
+                                        $myid2 = $row['post_id'];
+                                        $sql_select2 = "SELECT distinct b.avatar
+                                                        from post a
+                                                        inner join users b 
+                                                        on a.user_id = b.id
+                                                        WHERE a.post_id = '$myid2'";
+                                        $result2 = mysqli_query($conn, $sql_select2);
+                                            while ($row2 = mysqli_fetch_assoc($result2))
+                                                {
+                                                    echo $row2['avatar'];
+                                                } 
+                                    ?>
+                                ">
 
                             <div class="user-username">
                                 <?php
