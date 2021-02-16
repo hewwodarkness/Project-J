@@ -207,8 +207,8 @@ p {
 }
 
 .block-comments-one-user-pfp {
-  width: 50px;
-  height: 50px;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
   cursor: pointer;
   object-fit: cover;
@@ -218,8 +218,19 @@ p {
   margin-left: 10px;
 }
 
+.block-comments-one-text-and-rating {
+  display: flex;
+  position: relative;
+}
+
 .block-comments-one-text {
 
+}
+
+.block-comments-one-rating {
+  position: absolute;
+  right: 0;
+  margin-right: 10px;
 }
    /* Modal */
 

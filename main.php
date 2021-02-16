@@ -133,6 +133,7 @@
 
                             
                                 <?php
+                                global $myid;
                                     $myid = $row['post_id'];
                                     $sql_select1 = "SELECT distinct c.tag_name
                                                     from post_tags g 
@@ -215,11 +216,12 @@
                                 </div>
                             </div>
                             <div class="block-comments" id="<?=$row['comment_id']?>">
-                                
+                                <?php global $my; ?>
                                 
                                 <?php
                                     $myid = $row['post_id'];
-                                    $sql_select1 = "SELECT distinct c.comment_text, c.user_id, c.comment_id, u.full_name, u.avatar
+                                    $my = $myid;
+                                    $sql_select1 = "SELECT distinct c.comment_text, c.user_id, c.comment_id, u.full_name, u.avatar, c.rating
                                                     from post_comments g 
                                                     inner join post b 
                                                     on g.post_id = '$myid'
@@ -252,12 +254,41 @@
                                                         echo "<img class=\"block-comments-one-user-pfp\" src=" . $row1['avatar'] . ">";
                                                         echo "<p class=\"block-comments-one-user-username\">" . $row1['full_name'] . "</p>";
                                                     echo "</div>";
-                                                    echo "<p class=\"block-comments-one-text\">" . $row1['comment_text'] . "</p>";
+                                                    echo "<div class=\"block-comments-one-text-and-rating\">";
+                                                            echo "<p class=\"block-comments-one-text\">" . $row1['comment_text'] . "</p>";
+                                                            echo "<div class=\"block-comments-one-rating\">";
+                                                                echo "<p class=\"block-comments-one-user-username\"> Rating:  ";
+                                                                echo $row1['rating'];
+                                                                echo "</p>";
+                                                            echo "</div>";
+                                                    echo "</div>";
                                                 echo "</div>";
                                                 
                                             }  
                                 ?>
+                                <div class="createComment">
+                                    <form action="actionComment.php" method="post">
+                                        <!-- <p>
+                                            <?php echo $my ?>
+                                        </p> -->
+                                        <?php 
+                                            // $lastid = "SELECT comment_id
+                                            // FROM post_comments 
+                                            // ORDER BY comment_id
+                                            // DESC LIMIT 1";
+                                            // $lastid1 = $lastid;
+                                            // $result2 = mysqli_query($conn, $lastid1);
+                                            // while ($row2 = mysqli_fetch_assoc($result2))
+                                            // {
+                                            //     echo $row2['comment_id'];
+                                            // }
+                                        ?>
+                                        <input type="hidden" name="a" value="<?php echo $my ?>" />
+                                        <input type="comment" name="comment" placeholder="Введите комментарий">
+                                        <button type="submit">Отправить</button>
+                                    </form>
 
+                                </div>
                             </div>
 
 
