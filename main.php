@@ -30,10 +30,12 @@
             </a>
         </div>
         <div class="user-menu">
-            <img class="user-menu-pfp" src="<?= $_SESSION['user']['avatar']?>">
-            <p lass="user-menu-name">
-                <?= $_SESSION['user']['full_name']?>
-            </p>
+            <div class="user-menu-user">
+                <img class="user-menu-pfp" src="<?= $_SESSION['user']['avatar']?>">
+                <p lass="user-menu-name">
+                    <?= $_SESSION['user']['full_name']?>
+                </p>
+            </div>
             <a href="vendor/logout.php" class="logout">Выход</a>
         </div>
     </div>
