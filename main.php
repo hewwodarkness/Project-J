@@ -219,20 +219,40 @@
                                 
                                 <?php
                                     $myid = $row['post_id'];
-                                    $sql_select1 = "SELECT distinct c.comment_text, c.user_id, c.comment_id
+                                    $sql_select1 = "SELECT distinct c.comment_text, c.user_id, c.comment_id, u.full_name, u.avatar
                                                     from post_comments g 
                                                     inner join post b 
                                                     on g.post_id = '$myid'
                                                     inner join comments c 
-                                                    on g.comment_id = c.comment_id";
+                                                    on g.comment_id = c.comment_id
+                                                    inner join users u
+                                                    on c.user_id = u.id";
+                                    $mycomment = $row['comment_id'];
                                     $result1 = mysqli_query($conn, $sql_select1);
                                    
                                         while ($row1 = mysqli_fetch_assoc($result1))
                                             {
-                                                echo $row1['comment_id'];
+                                                // $sql_select2 = "SELECT distinct u.full_name, u.avatar
+                                                //                 from post_comments g 
+                                                //                 inner join post b 
+                                                //                 on g.post_id = '$myid'
+                                                //                 inner join comments c 
+                                                //                 on g.comment_id = c.comment_id
+                                                //                 inner join users u
+                                                //                 on c.user_id = u.id";
+                                                                    
+                                                                    
+                                                // $result2 = mysqli_query($conn, $sql_select2);
+                                                // while ($row2 = mysqli_fetch_assoc($result2))
+                                                // {
+                                                //     echo "<p>" . $row2['full_name'] . "</p>";
+                                                // }
                                                 echo "<div class=\"block-comments-one\">";
-                                                echo "<p>" . $row1['comment_text'] . "</p>";
-                                                    
+                                                    echo "<div class=\"block-comments-one-user-info\">";
+                                                        echo "<img class=\"block-comments-one-user-pfp\" src=" . $row1['avatar'] . ">";
+                                                        echo "<p class=\"block-comments-one-user-username\">" . $row1['full_name'] . "</p>";
+                                                    echo "</div>";
+                                                    echo "<p class=\"block-comments-one-text\">" . $row1['comment_text'] . "</p>";
                                                 echo "</div>";
                                                 
                                             }  

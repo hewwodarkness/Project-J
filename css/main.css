@@ -52,11 +52,14 @@ p {
 }
 
 .user-menu-pfp {
-  width: 50px;
+  width: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
 }
 
 .user-menu-name {
   width: 50px;
+  margin-right: 10px;
 }
 
 
@@ -139,7 +142,7 @@ p {
 }
 
 .post-text {
-  margin-top: 20px;
+  margin-top: 10px;
   margin-bottom: 20px;
   margin-left: 15px;
 }
@@ -198,8 +201,26 @@ p {
 
 .block-comments-one-user-info {
   display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+
 }
 
+.block-comments-one-user-pfp {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+  object-fit: cover;
+}
+
+.block-comments-one-user-username {
+  margin-left: 10px;
+}
+
+.block-comments-one-text {
+
+}
    /* Modal */
 
 #myImg:hover {opacity: 0.7;}
