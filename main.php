@@ -44,7 +44,7 @@
     include("db_conn1.php");
 
     $page = isset($_GET['page']) ? $_GET['page']: 1;
-    $limit = 10;
+    $limit = 100;
     $offset = $limit * ($page - 1);
 
     $sql_select =  "SELECT * 
@@ -88,25 +88,28 @@
             <div class="posts">
                 <div class="post">
                     <?php foreach($row as $row): ?>
-                    
+
                         <div class="user-post">
                         
-                            <img class="user-pfp" 
-                                src="
-                                    <?php
-                                        $myid2 = $row['post_id'];
-                                        $sql_select2 = "SELECT distinct b.avatar
-                                                        from post a
-                                                        inner join users b 
-                                                        on a.user_id = b.id
-                                                        WHERE a.post_id = '$myid2'";
-                                        $result2 = mysqli_query($conn, $sql_select2);
-                                            while ($row2 = mysqli_fetch_assoc($result2))
-                                                {
-                                                    echo $row2['avatar'];
-                                                } 
-                                    ?>
-                                ">
+                           <a href="user_profile.php?id=<?=$row['user_id']?>">
+                                <img class="user-pfp"
+                                    src="
+                                        <?php
+                                            $myid2 = $row['post_id'];
+                                            $sql_select2 = "SELECT distinct b.avatar
+                                                            from post a
+                                                            inner join users b 
+                                                            on a.user_id = b.id
+                                                            WHERE a.post_id = '$myid2'";
+                                            $result2 = mysqli_query($conn, $sql_select2);
+                                                while ($row2 = mysqli_fetch_assoc($result2))
+                                                    {
+                                                        echo $row2['avatar'];
+                                                    } 
+                                        ?>
+                                    ">
+                            </a>
+
 
                             <div class="user-username">
                                 <?php
