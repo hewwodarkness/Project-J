@@ -66,7 +66,7 @@ a {
 }
 .user-menu-pfp {
   width: 40px;
-  border-radius: 50%;
+  border-radius: 20%;
   margin-right: 10px;
 }
 
@@ -88,7 +88,7 @@ a {
 .main1 {
     display: flex;
     background-color: #161b22;
-    margin-top: 50px;
+    margin-top: 30px;
     border-radius: 10px;
     
 }
@@ -100,7 +100,7 @@ a {
   margin-bottom: 10px;
   border: 1px solid #30363d;
   width: fit-content;
-  border-radius: 40px;
+  border-radius: 20px;
   margin-right: 12px;
   padding-top: 7px;
   padding-bottom: 7px;
@@ -112,7 +112,7 @@ a {
 .user-pfp {
     width: 50px;
     height: 50px;
-    border-radius: 50%;
+    border-radius: 20%;
     cursor: pointer;
     object-fit: cover;
 }
@@ -145,7 +145,7 @@ a {
 .post-tag {
   width:fit-content;
   background-color: #30363d;
-  border-radius: 40px;
+  border-radius: 20px;
   margin-right: 12px;
   padding-top: 7px;
   padding-bottom: 7px;
@@ -180,7 +180,7 @@ a {
 .post-comments {
   width: fit-content;
   background-color: #30363d;
-  border-radius: 40px;
+  border-radius: 20px;
   margin-right: 12px;
   padding-top: 10px;
   padding-bottom: 10px;
@@ -191,7 +191,7 @@ a {
 .post-comments.active{
   width: fit-content;
   background-color: #7397c0;
-  border-radius: 40px;
+  border-radius: 20px;
   margin-right: 12px;
   padding-top: 10px;
   padding-bottom: 10px;
@@ -221,7 +221,7 @@ a {
 .block-comments-one-user-pfp {
   width: 30px;
   height: 30px;
-  border-radius: 50%;
+  border-radius: 20%;
   cursor: pointer;
   object-fit: cover;
 }

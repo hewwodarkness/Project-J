@@ -19,7 +19,9 @@
     ?>
     <div class="menu">
         <div>
-            <h3 class="logo">Joy<span>Reactor</span></h3>
+            <a href="main">
+                <h3 class="logo">Joy<span>Reactor</span></h3>
+            </a>
         </div>
         <div class="menu-form">
             <a href="form.php">
