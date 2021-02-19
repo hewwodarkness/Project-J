@@ -39,11 +39,20 @@ if ($error === 0) {
                 $text = $_POST["text"];
                 $post_rating = 1111;
 
-
-
+                $pizza  = $_POST["text1"];
+                $pieces = explode(",", $pizza);
+                echo $pieces[0]; // кусок1
+                echo $pieces[1]; // кусок2
 
             $sql = "INSERT INTO `post` (`post_id`, `user_id`, `comment_id`, `tags_id`, `post_rating`, `image`, `text`)
                     VALUES             ('$post_id', '$user_id', '$post_id', '$post_id', '$post_rating', '$new_img_name', '$text')";
+
+            // while ($i < 10) {
+            //     if 
+            //     $sql = "INSERT INTO `tags` (`post_id`, `tag_id`)
+            //             VALUES     ('$post_id', '$pieces[$i]')";
+            // }
+
             if ($sql === FALSE)
                 echo "Ошибка записи в базу: ".mysqli_error($sql);
             else

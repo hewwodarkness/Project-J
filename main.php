@@ -221,7 +221,11 @@
                                         <?=$row['dateCreated']?>
                                     </p>
                                 </div>
+
+                                
                             </div>
+                        
+                            
                             <div class="block-comments" id="<?=$row['comment_id']?>">
                                 <?php global $my; ?>
                                 
@@ -298,6 +302,7 @@
                                 </div>
                             </div>
 
+                           
 
                             <script>
 
@@ -331,11 +336,41 @@
                            
 
                         </div>
-
+                        
                     <?php endforeach; ?>
 
                 </div>
-                
+                <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js">
+                                // $('.post-comments').click(function(){
+                                //     element = document.getElementById(<?=$row['comment_id']?>);
+                                // $(element).fadeToggle(0);
+                                // }
+
+                                
+                                // const container = document.querySelector('.post-comments');
+
+                                // container.addEventListener('click', function(e) {
+                                //     const items = document.querySelectorAll('.block-comments')
+                                //     const target = e.target
+                                // Array.from(items).forEach(item => {
+                                //     item.classList.remove('active')
+                                // })
+                                // target.classList.add('active')
+                                // })
+
+                                    // jQuery(function($) {
+                                    //     $('.post-comments').click(function(){
+                                    //         $(this).closest('.post-comments').css("background-color", "red");
+                                    //     });
+                                    // });
+
+                                    // $(".post-comments").click(function() {
+                                        
+                                    //     alert(".block-comments".id);
+                                    //     $(".content").css("background-color", "");
+                                    //     $(this).css("background-color", "red");
+                                    // });
+                            </script>
             </div>
 
             <div class="tags-rightside">

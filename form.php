@@ -29,11 +29,14 @@
             <br>
     <php>
     <form name="feedback" method="POST" action="action.php" enctype="multipart/form-data">
-      <div class="intro">
+        <div class="intro">
 
-                  <input type="file" name="my_image">
-                  <h1 class="features__title"><input type="text" name="text"></h1>
-              </div>
+            <input type="file" name="my_image">
+            <h1 class="features__title"><input type="text" name="text"></h1>
+            <h1 class="tagsss"><input type="text1" name="text1"></h1>
+
+        </div>
+              
           <?php
                 $sql_select1 = "SELECT tag_name
                                 from tags";
