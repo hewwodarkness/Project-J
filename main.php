@@ -46,7 +46,7 @@
     include("db_conn1.php");
 
     $page = isset($_GET['page']) ? $_GET['page']: 1;
-    $limit = 100;
+    $limit = 1000;
     $offset = $limit * ($page - 1);
 
     $sql_select =  "SELECT * 
