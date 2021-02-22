@@ -9,27 +9,29 @@
 
 }
 
-.user-left {
-    width: 600px;
+/* .user-left {
+    width: 650px;
     background-color: #161b22;
     border-radius: 20px;
 }
 
 .user-right {
-    width: 300px;
+    width: 310px;
     background-color: #161b22;
     border-radius: 20px;
     margin: 0 0 0 auto;
+    float: right;
 }
 
 .user-right-block {
     margin: 0 20px 20px 20px;
-}
+} */
 
 .user-right-info {
     width: 250px;
     height: min-content;
     padding: 20px 20px 20px 20px;
+    float: right;
 
 }
 

@@ -372,13 +372,14 @@
                                     // });
                             </script>
             </div>
-
-            <div class="tags-rightside">
-                <img class="tag-anime" src="1.jpg">
-                <img class="tag-anime" src="1.jpg">
-                <img class="tag-anime" src="1.jpg">
-                <img class="tag-anime" src="1.jpg">
-            </div>  
+            <div class="right-block">
+                <div class="right-block-tags">
+                    <img class="tag-anime" src="1.jpg">
+                    <img class="tag-anime" src="1.jpg">
+                    <img class="tag-anime" src="1.jpg">
+                    <img class="tag-anime" src="1.jpg">
+                </div>  
+            </div>
 
         
         </div>

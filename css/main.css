@@ -87,9 +87,10 @@ a {
 
 .main1 {
     display: flex;
-    background-color: #161b22;
     margin-top: 30px;
     border-radius: 10px;
+    margin-right: auto;
+    margin-left: auto;
     
 }
 
@@ -122,7 +123,7 @@ a {
     display: flex;
     align-items: center;
     height: 50px;
-    margin-left: 5px;
+    margin-left: 10px;
 }
 
 
@@ -133,8 +134,12 @@ a {
 
 .posts {
   width: 700px;
-  margin-left: 30px;
-  margin-top: 20px;
+  margin-right: 25px;
+  margin-top: 0px;
+  background-color: #161b22;
+  border-radius: 20px;
+  padding: 20px 20px 20px 20px;
+  box-sizing: border-box;
 }
 
 .post-tags {
@@ -214,7 +219,6 @@ a {
 }
 .block-comments-one {
   background-color: #30363d;
-  width: 100%;
   height: max-content;
   margin-bottom: 5px;
   padding: 10px;
@@ -335,16 +339,23 @@ a {
 
   /* TAGS */
 
-  .tags-rightside {
-    width: 300px;
-    margin-top: 20px;
-    text-align: right;
-    margin-right: 20px;
+  .right-block {
+    width: 250px;
+    margin-left: 25px;
+    box-sizing: border-box;
+    border-radius: 20px;
+  }
+
+  .right-block-tags {
+    background-color: #161b22;
+    padding: 20px 20px 20px 20px;
+    text-align: center;
+    border-radius: 20px;
   } 
 
   .tag-anime {
     height: 100px;
-    width: 200px;
+    width: 170px;
     margin-bottom: 10px;
     object-fit: cover;
   }
