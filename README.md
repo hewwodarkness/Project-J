@@ -11,4 +11,4 @@ Features:
 5. Профиль пользователя. (Отображается нормально, посты принадлежат выбраному пользователю)
 
 # Diagram
-<img src="/uploads/db2.png" style="display: block; margin-left: auto; margin-right: auto;" />
+<img src="/uploads/db.png" style="display: block; margin-left: auto; margin-right: auto;" />
