@@ -32,7 +32,9 @@
         <div class="intro">
 
             <input type="file" name="my_image">
+            <p> text: </p>
             <h1 class="features__title"><input type="text" name="text"></h1>
+            <p> tags: </p>
             <h1 class="tagsss"><input type="text1" name="text1"></h1>
 
         </div>

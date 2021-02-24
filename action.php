@@ -33,7 +33,8 @@ if ($error === 0) {
 
             // Insert into Database
             
-                $post_id = abs( crc32( uniqid() ) );;;
+                // $post_id = abs( crc32( uniqid() ) );;;
+                
                // $dateCreated = $_POST["dpi"];
                 $user_id = $_SESSION['user']['id'];
                 $text = $_POST["text"];
@@ -42,6 +43,13 @@ if ($error === 0) {
                 $pizza  = $_POST["text1"];
                 $pieces = explode(",", $pizza);
 
+                $lastid6 =  "SELECT post_id
+                            FROM post
+                            ORDER BY post_id
+                            DESC LIMIT 1";
+
+                $post_id = mysqli_query($conn, $lastid6)->fetch_assoc()['post_id'];
+                $post_id = $post_id + 1;
                 $sql = "INSERT INTO `post` (`post_id`, `user_id`, `comment_id`, `tags_id`, `post_rating`, `image`, `text`)
                         VALUES             ('$post_id', '$user_id', '$post_id', '$post_id', '$post_rating', '$new_img_name', '$text')";
 

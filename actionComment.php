@@ -11,7 +11,7 @@
 
 <?php
     session_start();
-    $post_id = abs( crc32( uniqid() ) );;;
+    //$post_id = abs( crc32( uniqid() ) );;;
     // $dateCreated = $_POST["dpi"];
     $user_id = $_SESSION['user']['id'];
     
