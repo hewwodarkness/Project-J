@@ -5,7 +5,7 @@ body {
     width: 100%;
     margin: 0;
     padding: 0;
-    font-family: 'Open Sans',sans-serif;
+    font-family: "Poppins", sans-serif;
     color:aliceblue;
 }
 
@@ -16,7 +16,7 @@ p {
 a { 
   text-decoration: none;
   color: #f1f1f1;
-  font-weight: bold;
+  font-family: "Poppins", sans-serif;
  } 
 
 /* MENU */
@@ -29,18 +29,22 @@ a {
 }
 
 .logo {
-  font-family: "Poppins", sans-serif;
   font-size: 1.1rem;
-  font-weight: 600;
-  text-transform: uppercase;
+  font-weight: 400;
   letter-spacing: 2px;
   line-height: 50px;
   margin: 0px;
-  padding-left: 320px;
+  padding-left: 340px;
+  text-transform: uppercase;
+  display: flex;
+  vertical-align: middle;
 }
 
 .logo span {
-  font-weight: 300;
+  font-weight: 600;
+  margin-left: 3px;
+  text-transform: uppercase;
+  font-size: 30px;
 }
 
 .user-menu {
@@ -55,8 +59,11 @@ a {
 .menu-form {
   display: flex;
   align-items: center;
-  margin-left: 50px
+  margin-left: 20px
 
+}
+.create-post {
+  margin-right: 20px;
 }
 
 .user-menu-user {
@@ -72,6 +79,11 @@ a {
 
 .user-menu-name {
   width: 50px;
+}
+
+.logout {
+  font-weight: bold;
+  
 }
 
 
@@ -107,7 +119,7 @@ a {
   padding-bottom: 7px;
   padding-left: 10px;
   padding-right: 10px;
-
+  
 }
 
 .user-pfp {
@@ -116,6 +128,8 @@ a {
     border-radius: 20%;
     cursor: pointer;
     object-fit: cover;
+    display: flex;
+    vertical-align: middle;
 }
 
 .user-username {
@@ -158,10 +172,16 @@ a {
   padding-right: 12px;
 }
 
+.post-tag-style { 
+  text-decoration: none;
+  color: #f1f1f1;
+  font-weight:100;
+ } 
+
 .post-text {
   margin-top: 10px;
   margin-bottom: 20px;
-  margin-left: 15px;
+   margin-left: 9px; 
 }
 
 .post-image {
@@ -336,6 +356,25 @@ a {
     }
   }
 
+  .comment1 {
+    margin: 10px 0;
+    padding: 10px;
+    border: unset;
+    border-bottom: 2px solid #30363d;
+    outline: none;
+    background-color:#161b22;
+    color: aliceblue;
+  }
+
+
+  .button-comment {
+    padding: 10px;
+    background: #30363d;
+    border: unset;
+    cursor: pointer;
+    color: aliceblue;
+    margin-left: 10px
+  }
 
   /* TAGS */
 
@@ -358,4 +397,10 @@ a {
     width: 170px;
     margin-bottom: 10px;
     object-fit: cover;
+    background: grey;
+    opacity: 1;
+  }
+
+  .tag-anime:hover {
+    opacity: 0.8;
   }

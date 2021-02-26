@@ -1,5 +1,6 @@
 <?php
     session_start();
+    require_once 'vendor/connect.php';
     if ($_SESSION['user']) {
         header('Location: profile.php');
     }

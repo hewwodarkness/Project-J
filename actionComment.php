@@ -1,4 +1,6 @@
-<?php include "db_conn1.php"; ?>
+<?php include "db_conn1.php";
+require 'db.php';
+ ?>
 
 <!doctype html>
 <html lang="en">

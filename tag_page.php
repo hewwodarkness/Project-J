@@ -19,29 +19,51 @@
 
     ?>
     <?php
-    include("menu.php");
+        include("menu.php");
     ?>
     
 <?php 
     include("db_conn1.php");
-    $id = $_GET['id'];
+    $id = $_GET['tag_id'];
 
-    $sql_select4 =  "SELECT *
-                    FROM users
-                    WHERE id ='$id'
+    $sql_select4 =  "SELECT distinct tag_id, tag_name
+                    FROM tags
+                    WHERE tag_id ='$id'
                     ";
 
     $result4 = mysqli_query($conn, $sql_select4);
     $row4 = mysqli_fetch_array($result4, MYSQLI_ASSOC);
 
 
-    $sql_select =  "SELECT * 
+    $sql_select =  "SELECT distinct p.post_id, p.user_id, p.text, p.image, p.dateCreated, p.comment_id
                     FROM post p
-                    WHERE p.user_id ='$id'
-                    ORDER BY p.dateCreated DESC
+                    INNER JOIN post_tags t
+                    ON p.post_id = t.post_id
+                    INNER JOIN tags m
+                    ON t.tag_id = '$id'
                     ";
+
+                    
     $result = mysqli_query($conn, $sql_select);
+
+    if (!$result) {
+        die('Invalid query: ' . mysqli_error($conn));
+    }
+
     $row = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+    // $post_id1 = mysqli_query($conn, $sql_select)->fetch_assoc()['post_id'];
+    // echo $post_id1;
+    
+    // $sql_select7 = "SELECT distinct *
+    //                 from users u 
+    //                 INNER JOIN post s
+    //                 WHERE s.post_id = '$post_id1'
+    //                 ";
+                    
+    // $result7 = mysqli_query($conn, $sql_select7);
+    // $row7 = mysqli_fetch_all($result7, MYSQLI_ASSOC);
+
 ?>
     <div class="intro">
 
@@ -52,49 +74,49 @@
         <div class="post">
             <?php foreach($row as $row): ?>
 
-                <div class="user-post">
-                
-                   <a href="user_profile.php?id=<?=$row['user_id']?>">
-                        <img class="user-pfp"
-                            src="
-                                <?php
-                                    $myid2 = $row['post_id'];
-                                    $sql_select2 = "SELECT distinct b.avatar
-                                                    from post a
-                                                    inner join users b 
-                                                    on a.user_id = b.id
-                                                    WHERE a.post_id = '$myid2'";
-                                    $result2 = mysqli_query($conn, $sql_select2);
-                                        while ($row2 = mysqli_fetch_assoc($result2))
-                                            {
-                                                echo $row2['avatar'];
-                                            } 
-                                ?>
-                            ">
-                    </a>
+                    <div class="user-post">
+                    
+                        <a href="user_profile.php?id=<?=$row['user_id']?>">
+                            <img class="user-pfp"
+                                src="
+                                    <?php
+                                        $myid2 = $row['post_id'];
+                                        $sql_select2 = "SELECT distinct b.avatar
+                                                        from post a
+                                                        inner join users b 
+                                                        on a.user_id = b.id
+                                                        WHERE a.post_id = '$myid2'";
+                                        $result2 = mysqli_query($conn, $sql_select2);
+                                            while ($row2 = mysqli_fetch_assoc($result2))
+                                                {
+                                                    echo $row2['avatar'];
+                                                } 
+                                    ?>
+                                ">
+                        </a>
 
 
-                    <div class="user-username">
-                        <?php
-                            $myid2 = $row['post_id'];
-                            $sql_select2 = "SELECT distinct b.full_name
-                                            from post a
-                                            inner join users b 
-                                            on a.user_id = b.id
-                                            WHERE a.post_id = '$myid2'";
-                            $result2 = mysqli_query($conn, $sql_select2);
-                                while ($row2 = mysqli_fetch_assoc($result2))
-                                    {
-                                        echo "<p>" . $row2['full_name'] . "</p>";
-                                    } 
-                        ?>
+                        <div class="user-username">
+                            <?php
+                                $myid2 = $row['post_id'];
+                                $sql_select2 = "SELECT distinct b.full_name
+                                                from post a
+                                                inner join users b 
+                                                on a.user_id = b.id
+                                                WHERE a.post_id = '$myid2'";
+                                $result2 = mysqli_query($conn, $sql_select2);
+                                    while ($row2 = mysqli_fetch_assoc($result2))
+                                        {
+                                            echo "<p>" . $row2['full_name'] . "</p>";
+                                        } 
+                            ?>
+                        </div>
+                        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js">
+                        </script>
+                        <script src="js/user-info4.js">
+                        </script>
+            
                     </div>
-                    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js">
-                    </script>
-                    <script src="js/user-info4.js">
-                    </script>
-        
-                </div>
                 
                 
                 <div class="post-tags">   
@@ -335,9 +357,9 @@
     </div>
     <div class="right-block">
         <div class="right-block-tags">
-                <img class="user-info-img" src="<?=$row4['avatar']?>" alt="">
+                <img class="user-info-img" src="uploads/tenor.gif" alt="">
                 <p class="user-info-name">
-                    <?=$row4['full_name']?>
+                    <?=$row4['tag_name']?>
                 </p>
                 <p class="user-info-link">
                     u/userlink

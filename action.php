@@ -10,7 +10,7 @@
 <body>
 
 <?php
-session_start();
+require 'db.php';
 $img_name = $_FILES['my_image']['name'];
 $img_size = $_FILES['my_image']['size'];
 $tmp_name = $_FILES['my_image']['tmp_name'];

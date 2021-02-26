@@ -8,40 +8,12 @@
 </head>
 <body>
     <?php
-        session_start();
-
-        if ($_SESSION['user']) {
-            header('Location: ');
-        }
-        else 
-            header('Location: vendor/signin.php');
-
+        require 'db.php';
     ?>
-    <div class="menu">
-        <div>
-            <a href="main">
-                <h3 class="logo">Joy<span>Reactor</span></h3>
-            </a>
-        </div>
-        <div class="menu-form">
-            <a href="form.php">
-                <p>
-                    Создать пост
+    <?php
+    include("menu.php");
+    ?>
 
-                </p>
-            </a>
-        </div>
-        <div class="user-menu">
-            <div class="user-menu-user">
-                <img class="user-menu-pfp" src="<?= $_SESSION['user']['avatar']?>">
-                <p lass="user-menu-name">
-                    <?= $_SESSION['user']['full_name']?>
-                </p>
-            </div>
-            <a href="vendor/logout.php" class="logout">Выход</a>
-        </div>
-    </div>
-    
     <?php
     include("db_conn1.php");
 
@@ -142,7 +114,7 @@
                                 <?php
                                 global $myid;
                                     $myid = $row['post_id'];
-                                    $sql_select1 = "SELECT distinct c.tag_name
+                                    $sql_select1 = "SELECT distinct c.tag_id, c.tag_name
                                                     from post_tags g 
                                                     inner join post b 
                                                     on g.post_id = '$myid'
@@ -151,9 +123,11 @@
                                     $result1 = mysqli_query($conn, $sql_select1);
                                         while ($row1 = mysqli_fetch_assoc($result1))
                                             {
+                                                echo "<a class=\"post-tag-style\" href=\"tag_page.php?tag_id=" . $row1['tag_id'] . "\">";
                                                 echo "<div class=\"post-tag\">";
                                                 echo "<p>" . $row1['tag_name'] . "</p>";
                                                 echo "</div>";
+                                                echo "</a>";
                                             } 
                                 ?>
                                 <!-- <?=$row['post_id'] ?? ""?> -->
@@ -295,8 +269,8 @@
                                             // }
                                         ?>
                                         <input type="hidden" name="a" value="<?php echo $my ?>" />
-                                        <input type="comment" name="comment" placeholder="Введите комментарий">
-                                        <button type="submit">Отправить</button>
+                                        <input class="comment1" type="comment" name="comment" placeholder="Press your comment here">
+                                        <button class="button-comment" type="submit">Отправить</button>
                                     </form>
 
                                 </div>
@@ -374,7 +348,7 @@
             </div>
             <div class="right-block">
                 <div class="right-block-tags">
-                    <img class="tag-anime" src="1.jpg">
+                    <img class="tag-anime" src="uploads/tenor.gif">
                     <img class="tag-anime" src="1.jpg">
                     <img class="tag-anime" src="1.jpg">
                     <img class="tag-anime" src="1.jpg">

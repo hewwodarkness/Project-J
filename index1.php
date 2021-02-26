@@ -1,7 +1,7 @@
 <?php
 session_start();
-
-if ($_SESSION['user']) {
+include("vendor/connect.php");
+if (isset($_SESSION['user'])) {
     header('Location: profile.php');
 }
 
@@ -28,7 +28,7 @@ if ($_SESSION['user']) {
             У вас нет аккаунта? - <a href="register.php">зарегистрируйтесь</a>!
         </p>
         <?php
-            if ($_SESSION['message']) {
+            if (isset($_SESSION['message'])) {
                 echo '<p class="msg"> ' . $_SESSION['message'] . ' </p>';
             }
             unset($_SESSION['message']);
