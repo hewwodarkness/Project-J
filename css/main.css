@@ -18,6 +18,7 @@ a {
   text-decoration: none;
   color: #f1f1f1;
   font-family: "Poppins", sans-serif;
+  margin: 0 0 0 0;
  } 
 
 /* MENU */
@@ -255,6 +256,9 @@ a {
   margin-bottom: 10px;
   position: relative;
 
+}
+.block-comments-one-user-info-link {
+  display: flex;
 }
 
 .block-comments-one-user-pfp {

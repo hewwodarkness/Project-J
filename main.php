@@ -236,9 +236,11 @@
                                                 // }
                                                 echo "<div class=\"block-comments-one\">";
                                                     echo "<div class=\"block-comments-one-user-info\">";
+
+                                                    echo "<a class=\"block-comments-one-user-info-link\" href=\"user_profile.php?id=".$row1['user_id']."\">";
                                                         echo "<img class=\"block-comments-one-user-pfp\" src=" . $row1['avatar'] . ">";
                                                         echo "<p class=\"block-comments-one-user-username\">" . $row1['full_name'] . "</p>";
-
+                                                    echo "</a>";
                      
                                                         echo "<p class=\"block-comments-one-user-rating\"> Rating:  ";
                                                             echo $row1['rating'];
