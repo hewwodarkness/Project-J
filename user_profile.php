@@ -100,23 +100,25 @@
                 <div class="post-tags">   
 
                     
-                        <?php
-                        global $myid;
-                            $myid = $row['post_id'];
-                            $sql_select1 = "SELECT distinct c.tag_name
-                                            from post_tags g 
-                                            inner join post b 
-                                            on g.post_id = '$myid'
-                                            inner join tags c 
-                                            on g.tag_id = c.tag_id";
-                            $result1 = mysqli_query($conn, $sql_select1);
-                                while ($row1 = mysqli_fetch_assoc($result1))
-                                    {
-                                        echo "<div class=\"post-tag\">";
-                                        echo "<p>" . $row1['tag_name'] . "</p>";
-                                        echo "</div>";
-                                    } 
-                        ?>
+                <?php
+                                global $myid;
+                                    $myid = $row['post_id'];
+                                    $sql_select1 = "SELECT distinct c.tag_id, c.tag_name
+                                                    from post_tags g 
+                                                    inner join post b 
+                                                    on g.post_id = '$myid'
+                                                    inner join tags c 
+                                                    on g.tag_id = c.tag_id";
+                                    $result1 = mysqli_query($conn, $sql_select1);
+                                        while ($row1 = mysqli_fetch_assoc($result1))
+                                            {
+                                                echo "<a class=\"post-tag-style\" href=\"tag_page.php?tag_id=" . $row1['tag_id'] . "\">";
+                                                echo "<div class=\"post-tag\">";
+                                                echo "<p>" . $row1['tag_name'] . "</p>";
+                                                echo "</div>";
+                                                echo "</a>";
+                                            } 
+                                ?>
                        
                     
                 </div>
@@ -193,7 +195,7 @@
                         <?php
                             $myid = $row['post_id'];
                             $my = $myid;
-                            $sql_select1 = "SELECT distinct c.comment_text, c.user_id, c.comment_id, u.full_name, u.avatar, c.rating
+                            $sql_select1 = "SELECT distinct c.comment_text, c.user_id, c.comment_id, u.full_name, u.avatar, c.rating, c.dateCreated
                                             from post_comments g 
                                             inner join post b 
                                             on g.post_id = '$myid'
@@ -222,45 +224,52 @@
                                         //     echo "<p>" . $row2['full_name'] . "</p>";
                                         // }
                                         echo "<div class=\"block-comments-one\">";
-                                            echo "<div class=\"block-comments-one-user-info\">";
-                                                echo "<img class=\"block-comments-one-user-pfp\" src=" . $row1['avatar'] . ">";
-                                                echo "<p class=\"block-comments-one-user-username\">" . $row1['full_name'] . "</p>";
-                                            echo "</div>";
-                                            echo "<div class=\"block-comments-one-text-and-rating\">";
-                                                    echo "<p class=\"block-comments-one-text\">" . $row1['comment_text'] . "</p>";
-                                                    echo "<div class=\"block-comments-one-rating\">";
-                                                        echo "<p class=\"block-comments-one-user-username\"> Rating:  ";
-                                                        echo $row1['rating'];
+                                                    echo "<div class=\"block-comments-one-user-info\">";
+                                                        echo "<img class=\"block-comments-one-user-pfp\" src=" . $row1['avatar'] . ">";
+                                                        echo "<p class=\"block-comments-one-user-username\">" . $row1['full_name'] . "</p>";
+
+                     
+                                                        echo "<p class=\"block-comments-one-user-rating\"> Rating:  ";
+                                                            echo $row1['rating'];
                                                         echo "</p>";
+
                                                     echo "</div>";
-                                            echo "</div>";
-                                        echo "</div>";
+                                                    echo "<div class=\"block-comments-one-text-and-rating\">";
+                                                            echo "<p class=\"block-comments-one-text\">" . $row1['comment_text'] . "</p>";
+                        
+
+                                                            echo "<p class=\"block-comments-one-user-datecreated\"> Date created:  ";
+                                                                echo $row1['dateCreated'];
+                                                            echo "</p>";
+                                                     
+                                                    echo "</div>";
+                                                echo "</div>";
                                         
                                     }  
                         ?>
                         <div class="createComment">
-                            <form action="actionComment.php" method="post">
-                                <!-- <p>
-                                    <?php echo $my ?>
-                                </p> -->
-                                <?php 
-                                    // $lastid = "SELECT comment_id
-                                    // FROM post_comments 
-                                    // ORDER BY comment_id
-                                    // DESC LIMIT 1";
-                                    // $lastid1 = $lastid;
-                                    // $result2 = mysqli_query($conn, $lastid1);
-                                    // while ($row2 = mysqli_fetch_assoc($result2))
-                                    // {
-                                    //     echo $row2['comment_id'];
-                                    // }
-                                ?>
-                                <input type="hidden" name="a" value="<?php echo $my ?>" />
-                                <input type="comment" name="comment" placeholder="Введите комментарий">
-                                <button type="submit">Отправить</button>
-                            </form>
+                                    <form action="actionComment.php" method="post">
+                                        <!-- <p>
+                                            <?php echo $my ?>
+                                        </p> -->
+                                        <?php 
+                                            // $lastid = "SELECT comment_id
+                                            // FROM post_comments 
+                                            // ORDER BY comment_id
+                                            // DESC LIMIT 1";
+                                            // $lastid1 = $lastid;
+                                            // $result2 = mysqli_query($conn, $lastid1);
+                                            // while ($row2 = mysqli_fetch_assoc($result2))
+                                            // {
+                                            //     echo $row2['comment_id'];
+                                            // }
+                                        ?>
+                                        <input type="hidden" name="a" value="<?php echo $my ?>" />
+                                        <input class="comment1" type="comment" name="comment" placeholder="Press your comment here">
+                                        <button class="button-comment" type="submit">Отправить</button>
+                                    </form>
 
-                        </div>
+                                </div>
                     </div>
 
                    
