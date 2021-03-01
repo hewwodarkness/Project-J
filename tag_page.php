@@ -24,7 +24,7 @@
     ?>
     
 <?php 
-    include("db_conn1.php");
+    include 'goodconnection.php';
     $id = $_GET['tag_id'];
 // 
 // 
@@ -218,7 +218,7 @@
                                         echo "</div>";
                                     } 
                         ?>
-                        <!-- <?=$row['post_id'] ?? ""?> -->
+                        
                     
                 </div>
                 <div class="post-text">
@@ -596,7 +596,7 @@
                                             echo "</div>";
                                         } 
                             ?>
-                            <!-- <?=$row['post_id'] ?? ""?> -->
+                            
                         
                     </div>
                     <div class="post-text">

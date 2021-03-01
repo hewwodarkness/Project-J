@@ -1,4 +1,5 @@
-<?php include "db_conn1.php";
+<?php 
+include 'goodconnection.php';
 require 'db.php';
  ?>
 
@@ -35,8 +36,8 @@ require 'db.php';
                     $test = $test + 1;
                     $sql = "INSERT INTO `post_comments` (`post_id`, `comment_id`)
                             VALUES     ('$a', '$test')";
-                    $sql1 = "INSERT INTO `comments` (`comment_id`, `comment_text`, `user_id`)
-                            VALUES     ('$test', '$text' , '$user_id')";
+                    $sql1 = "INSERT INTO `comments` (`comment_id`, `comment_text`, `user_id`, `rating`)
+                            VALUES     ('$test', '$text' , '$user_id', 1)";
                 }
 
     // $sql = "INSERT INTO `post_comments` (`post_id`, `comment_id`)

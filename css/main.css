@@ -27,6 +27,7 @@ a {
     height: 50px;
     vertical-align: middle;
     display: flex;
+    box-sizing: border-box;
 }
 
 .logo {
@@ -39,6 +40,7 @@ a {
   text-transform: uppercase;
   display: flex;
   vertical-align: middle;
+  box-sizing: border-box;
 }
 
 .logo span {
@@ -251,6 +253,7 @@ a {
   display: flex;
   align-items: center;
   margin-bottom: 10px;
+  position: relative;
 
 }
 
@@ -264,6 +267,18 @@ a {
 
 .block-comments-one-user-username {
   margin-left: 10px;
+}
+
+.block-comments-one-user-rating {
+  position: absolute;
+  right: 0;
+}
+
+.block-comments-one-user-datecreated {
+  display: flex;
+  float: right;
+  position: absolute;
+  right: 0;
 }
 
 .block-comments-one-text-and-rating {
@@ -405,3 +420,11 @@ a {
   .tag-anime:hover {
     opacity: 0.8;
   }
+
+.btn {
+  background: #8C959D; /* Серый цвет фона */
+    color: #fff; /* Белый цвет текста */
+    padding: 1rem 1.5rem; /* Поля вокруг текста */
+    text-decoration: none; /* Убираем подчёркивание */
+    border-radius: 3px; 
+}

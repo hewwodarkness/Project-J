@@ -1,6 +1,8 @@
+
+
 <div class="menu">
         <div>
-            <a href="main">
+            <a href="main.php">
                 <h3 class="logo">Project
                     <span>
                         J

@@ -1,4 +1,4 @@
-<?php include "db_conn1.php"; ?>
+<?php include 'goodconnection.php'; ?>
 <!DOCTYPE html>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/main.css">
@@ -9,7 +9,7 @@
 </head>
 <body>
         
-            <!-- <?=$row['post_id'] ?? ""?> -->
+            
         <?php
             require 'db.php';
             if ($_SESSION['user1'])
@@ -17,7 +17,7 @@
                 header('Location: ');
             }
             else 
-                header('Location: vendor/signin.php');
+                header('Location: login.php');
 
         ?>
     <?php

@@ -1,6 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/user_profile.css">
+    <link rel="stylesheet" href="css/tag_page.css">
+	<div class="menu">
+        <div>
+            <a href="main.php">
+                <h3 class="logo">Project
+                    <span>
+                        J
+                    </span>
+                </h3>
+            </a>
+        </div>
+	</div>
+
 <?php 
+
 	require 'db.php';
-	$connect = mysqli_connect('localhost', 'root', '', 'project-j');
+	include 'goodconnection.php';
+	$connect = $conn;
 	$data = $_POST;
 	if ( isset($data['do_login']) )
 	{
@@ -57,4 +79,9 @@
 	<input type="password" name="password" value="<?php echo @$data['password']; ?>"><br/>
 
 	<button type="submit" name="do_login">Войти</button>
+
+		 <a href="signup.php" class="btn">registration</a>
+ </body>
+</html>
+
 </form>

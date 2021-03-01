@@ -9,13 +9,13 @@
 <body>
     <?php
         require 'db.php';
+        include 'goodconnection.php';
     ?>
     <?php
-    include("menu.php");
+        include 'menu.php';
     ?>
 
     <?php
-    include("db_conn1.php");
 
     $page = isset($_GET['page']) ? $_GET['page']: 1;
     $limit = 1000;
@@ -130,7 +130,7 @@
                                                 echo "</a>";
                                             } 
                                 ?>
-                                <!-- <?=$row['post_id'] ?? ""?> -->
+                                
                             
                         </div>
                         <div class="post-text">
@@ -206,7 +206,7 @@
                                 <?php
                                     $myid = $row['post_id'];
                                     $my = $myid;
-                                    $sql_select1 = "SELECT distinct c.comment_text, c.user_id, c.comment_id, u.full_name, u.avatar, c.rating
+                                    $sql_select1 = "SELECT distinct c.comment_text, c.user_id, c.comment_id, u.full_name, u.avatar, c.rating, c.dateCreated
                                                     from post_comments g 
                                                     inner join post b 
                                                     on g.post_id = '$myid'
@@ -238,14 +238,21 @@
                                                     echo "<div class=\"block-comments-one-user-info\">";
                                                         echo "<img class=\"block-comments-one-user-pfp\" src=" . $row1['avatar'] . ">";
                                                         echo "<p class=\"block-comments-one-user-username\">" . $row1['full_name'] . "</p>";
+
+                     
+                                                        echo "<p class=\"block-comments-one-user-rating\"> Rating:  ";
+                                                            echo $row1['rating'];
+                                                        echo "</p>";
+
                                                     echo "</div>";
                                                     echo "<div class=\"block-comments-one-text-and-rating\">";
                                                             echo "<p class=\"block-comments-one-text\">" . $row1['comment_text'] . "</p>";
-                                                            echo "<div class=\"block-comments-one-rating\">";
-                                                                echo "<p class=\"block-comments-one-user-username\"> Rating:  ";
-                                                                echo $row1['rating'];
-                                                                echo "</p>";
-                                                            echo "</div>";
+                        
+
+                                                            echo "<p class=\"block-comments-one-user-datecreated\"> Date created:  ";
+                                                                echo $row1['dateCreated'];
+                                                            echo "</p>";
+                                                     
                                                     echo "</div>";
                                                 echo "</div>";
                                                 

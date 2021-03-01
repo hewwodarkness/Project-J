@@ -1,4 +1,4 @@
-<?php include "db_conn1.php"; ?>
+<?php include 'goodconnection.php'; ?>
 
 <!doctype html>
 <html lang="en">
@@ -92,6 +92,12 @@ if ($error === 0) {
                             $sql1 = "INSERT INTO `post_tags` (`post_id`, `tag_id`)
                               VALUES             ('$post_id', '$result23')";
                               mysqli_query($conn, $sql1);
+
+                              $sql8 = "INSERT INTO `tags_moderators` (`tag_id`, `user_id`)
+                              VALUES      ('$result23', '$user_id')";
+
+                            mysqli_query($conn, $sql8);       
+
                               
                                             
                                             $i = $i + 1;

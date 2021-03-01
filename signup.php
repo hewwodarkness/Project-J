@@ -1,3 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/user_profile.css">
+    <link rel="stylesheet" href="css/tag_page.css">
+	<div class="menu">
+        <div>
+            <a href="main.php">
+                <h3 class="logo">Project
+                    <span>
+                        J
+                    </span>
+                </h3>
+            </a>
+        </div>
+	</div>
+	<?php
+	include 'goodconnection.php';
+    	
+    ?>
 <?php 
 	require 'db.php';
 
@@ -123,4 +146,5 @@
 	<input type="text" name="captcha" ><br/>
 
 	<button type="submit" name="do_signup">Регистрация</button>
+	<a href="login.php" class="btn">Вход</a>
 </form>

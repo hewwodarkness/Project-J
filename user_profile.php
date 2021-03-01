@@ -23,7 +23,7 @@
     ?>
     
 <?php 
-    include("db_conn1.php");
+    include 'goodconnection.php';
     $id = $_GET['id'];
 
     $sql_select4 =  "SELECT *
@@ -117,7 +117,7 @@
                                         echo "</div>";
                                     } 
                         ?>
-                        <!-- <?=$row['post_id'] ?? ""?> -->
+                       
                     
                 </div>
                 <div class="post-text">
@@ -417,7 +417,7 @@
                                             echo "</div>";
                                         } 
                             ?>
-                            <!-- <?=$row['post_id'] ?? ""?> -->
+                            
                         
                     </div>
                     <div class="post-text">
@@ -427,7 +427,7 @@
                     </div>
                     <img class="post-image" id="<?=$row['text']?>" alt="KEKW" src="uploads/<?=$row['image']?>" >
                     
-                    <!-- Modal -->
+                    
 
                     <div id="myModal" class="modal">
                         <span class="close">&times;</span>
@@ -481,20 +481,7 @@
                     </div>
                 <?php endforeach; ?> -->
 
-                <!-- <div class="right-block">
-                    <div class="right-block-tags">
-                        <div class="user-right-info">
-                            <img class="user-info-img" src="<?=$row4['avatar']?>" alt="">
-                            <p class="user-info-name">
-                                <?=$row4['full_name']?>
-                            </p>
-                            <p class="user-info-link">
-                                u/userlink
-                            </p>
-                        </div>
-                    </div>
-                </div> -->
-    <!-- </div> -->
+               
 </div>
 </body>
 </html>
