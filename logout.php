@@ -1,5 +1,13 @@
 <?php 
 	require 'db.php';
 	unset($_SESSION['logged_user']);
-	header('Location: login.php');
+	unset($_SESSION);
+
+	session_destroy();
+	header('Location: main.php');
+	if (isset($_GET['logout'])) {
+		session_destroy();
+		header('Location: main.php');
+	}
+	
 ?>

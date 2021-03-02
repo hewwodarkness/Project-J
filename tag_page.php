@@ -12,11 +12,6 @@
     <?php
         require 'db.php';
 
-        if ($_SESSION['user1']) {
-            header('Location: ');
-        }
-        else 
-            header('Location: vendor/signin.php');
 
     ?>
     <?php

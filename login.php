@@ -6,19 +6,13 @@
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/user_profile.css">
     <link rel="stylesheet" href="css/tag_page.css">
-	<div class="menu">
-        <div>
-            <a href="main.php">
-                <h3 class="logo">Project
-                    <span>
-                        J
-                    </span>
-                </h3>
-            </a>
-        </div>
-	</div>
-
+	<link rel="stylesheet" href="css/menu.css">
+	
+</head>
+<body>
 <?php 
+
+include 'menu.php';
 
 	require 'db.php';
 	include 'goodconnection.php';
@@ -71,17 +65,24 @@
 ?>
 
 
-<form action="login.php" method="POST">
+<form action="login.php" method="POST" class="loginform">
 	<strong>Логин</strong>
 	<input type="text" name="login" value="<?php echo @$data['login']; ?>"><br/>
 
 	<strong>Пароль</strong>
 	<input type="password" name="password" value="<?php echo @$data['password']; ?>"><br/>
+	<div class="twobuttons">
+		<div class="buttontest">
+			<button type="submit" name="do_login" class="btn">Sign in</button>
+		</div>
+		<div class="buttontest">
+			<a type="submit" href="signup.php" class="btn">Registration</a>
+		</div>
+	</div>
+		 
 
-	<button type="submit" name="do_login">Войти</button>
-
-		 <a href="signup.php" class="btn">registration</a>
- </body>
-</html>
 
 </form>
+
+</body>
+</html>

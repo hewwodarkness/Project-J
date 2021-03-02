@@ -13,41 +13,47 @@ require 'db.php';
 <body>
 
 <?php
-    session_start();
     //$post_id = abs( crc32( uniqid() ) );;;
     // $dateCreated = $_POST["dpi"];
-    $user_id = $_SESSION['user']['id'];
-    
-    $text = $_POST['comment'];
-    $post_rating = 1111;
-    $a  = $_POST['a'];
+    if ( isset ($_SESSION['user']) ) :
 
-    $lastid =  "SELECT comment_id
-                FROM post_comments 
-                ORDER BY comment_id
-                DESC LIMIT 1";
-        $lastid1 = $lastid;
-        global $test;
-            $result2 = mysqli_query($conn, $lastid1);
-                while ($row2 = mysqli_fetch_assoc($result2))
-                {
-                    echo $row2['comment_id'];
-                    $test = $row2['comment_id'];
-                    $test = $test + 1;
-                    $sql = "INSERT INTO `post_comments` (`post_id`, `comment_id`)
-                            VALUES     ('$a', '$test')";
-                    $sql1 = "INSERT INTO `comments` (`comment_id`, `comment_text`, `user_id`, `rating`)
-                            VALUES     ('$test', '$text' , '$user_id', 1)";
-                }
+        $user_id = $_SESSION['user']['id'];
+        
+        $text = $_POST['comment'];
+        $post_rating = 1111;
+        $a  = $_POST['a'];
 
-    // $sql = "INSERT INTO `post_comments` (`post_id`, `comment_id`)
-    //         VALUES     ('$a', '$test')
-    //         -- INSERT INTO 'comments' (`comment_id`, `comment_text`, `user_id`)
-    //         -- VALUES     ('$lastid', '$text' , '$user_id')
-    //         ";
+        $lastid =  "SELECT comment_id
+                    FROM post_comments 
+                    ORDER BY comment_id
+                    DESC LIMIT 1";
+            $lastid1 = $lastid;
+            global $test;
+                $result2 = mysqli_query($conn, $lastid1);
+                    while ($row2 = mysqli_fetch_assoc($result2))
+                    {
+                        echo $row2['comment_id'];
+                        $test = $row2['comment_id'];
+                        $test = $test + 1;
+                        $sql = "INSERT INTO `post_comments` (`post_id`, `comment_id`)
+                                VALUES     ('$a', '$test')";
+                        $sql1 = "INSERT INTO `comments` (`comment_id`, `comment_text`, `user_id`, `rating`)
+                                VALUES     ('$test', '$text' , '$user_id', 1)";
+                    }
 
-            mysqli_query($conn, $sql);
-            mysqli_query($conn, $sql1);
-header('Location: main.php ');
+        // $sql = "INSERT INTO `post_comments` (`post_id`, `comment_id`)
+        //         VALUES     ('$a', '$test')
+        //         -- INSERT INTO 'comments' (`comment_id`, `comment_text`, `user_id`)
+        //         -- VALUES     ('$lastid', '$text' , '$user_id')
+        //         ";
+
+                mysqli_query($conn, $sql);
+                mysqli_query($conn, $sql1);
+                header('Location: main.php ');
+    else :
+       
+        header('Location: login.php ');
+        
+    endif;
 $conn->close();
 ?>

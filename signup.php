@@ -6,22 +6,16 @@
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/user_profile.css">
     <link rel="stylesheet" href="css/tag_page.css">
-	<div class="menu">
-        <div>
-            <a href="main.php">
-                <h3 class="logo">Project
-                    <span>
-                        J
-                    </span>
-                </h3>
-            </a>
-        </div>
-	</div>
+	<link rel="stylesheet" href="css/menu.css">
+
+
+
 	<?php
 	include 'goodconnection.php';
     	
     ?>
 <?php 
+include 'menu.php';
 	require 'db.php';
 
 	$data = $_POST;

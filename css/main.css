@@ -2,11 +2,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
 body {
     background-color: #0d1117;
-    width: 100%;
     margin: 0;
     padding: 0;
     font-family: "Poppins", sans-serif;
     color:aliceblue;
+    width: 100%;
 }
 
 p {
@@ -16,79 +16,10 @@ p {
 
 a { 
   text-decoration: none;
-  color: #f1f1f1;
-  font-family: "Poppins", sans-serif;
+  color:aliceblue;
+  
   margin: 0 0 0 0;
  } 
-
-/* MENU */
-
-.menu {
-    background-color: #161b22;
-    height: 50px;
-    vertical-align: middle;
-    display: flex;
-    box-sizing: border-box;
-}
-
-.logo {
-  font-size: 1.1rem;
-  font-weight: 400;
-  letter-spacing: 2px;
-  line-height: 50px;
-  margin: 0px;
-  padding-left: 340px;
-  text-transform: uppercase;
-  display: flex;
-  vertical-align: middle;
-  box-sizing: border-box;
-}
-
-.logo span {
-  font-weight: 600;
-  margin-left: 3px;
-  text-transform: uppercase;
-  font-size: 30px;
-}
-
-.user-menu {
-  height: 50px;
-  display: flex;
-  align-items: center;
-  position: absolute;
-  right: 0;
-  margin-right: 395px;
-}
-
-.menu-form {
-  display: flex;
-  align-items: center;
-  margin-left: 20px
-
-}
-.create-post {
-  margin-right: 20px;
-}
-
-.user-menu-user {
-  margin-right: 20px;
-  display: flex;
-  align-items: center;
-}
-.user-menu-pfp {
-  width: 40px;
-  border-radius: 20%;
-  margin-right: 10px;
-}
-
-.user-menu-name {
-  width: 50px;
-}
-
-.logout {
-  font-weight: bold;
-  
-}
 
 
 /* INTRO */
@@ -427,9 +358,51 @@ a {
   }
 
 .btn {
-  background: #8C959D; /* Серый цвет фона */
-    color: #fff; /* Белый цвет текста */
-    padding: 1rem 1.5rem; /* Поля вокруг текста */
-    text-decoration: none; /* Убираем подчёркивание */
-    border-radius: 3px; 
+  background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+  width: 200px;
+  height: 50px;
+}
+
+.twobuttons {
+  width: 500px;
+  display: flex;
+  margin-left: auto;
+    margin-right: auto;
+}
+
+.buttontest {
+  width: 200px;
+	height: 50px;
+	margin-left: 40px;
+	margin-bottom: 20px;
+	border-radius: 10px;
+  border-width: 0;
+  border-radius: 5px;
+  border: 1px solid black;
+  display: flex;
+
+}
+
+.loginform {
+  align-items: center;
+  text-align: center;
+  width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media(max-width: 1000px) 
+{
+  .posts {
+    width: 70%;
+  }
+  .right-block {
+    width: 25%;
+  }
 }
