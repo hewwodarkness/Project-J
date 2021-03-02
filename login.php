@@ -4,9 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/user_profile.css">
-    <link rel="stylesheet" href="css/tag_page.css">
-	<link rel="stylesheet" href="css/menu.css">
+	<link rel="stylesheet" href="css/login.css">
+
 	
 </head>
 <body>
@@ -65,24 +64,45 @@ include 'menu.php';
 ?>
 
 
-<form action="login.php" method="POST" class="loginform">
-	<strong>Логин</strong>
-	<input type="text" name="login" value="<?php echo @$data['login']; ?>"><br/>
+	<div class="container">
 
-	<strong>Пароль</strong>
-	<input type="password" name="password" value="<?php echo @$data['password']; ?>"><br/>
-	<div class="twobuttons">
-		<div class="buttontest">
-			<button type="submit" name="do_login" class="btn">Sign in</button>
+		<div class="login-inputs">
+
+			<p class="login-text">
+				Login
+			</p>
+
+			<form action="login.php" method="POST" class="loginform">
+
+				<input type="text" name="login" placeholder="Login" value="<?php echo @$data['login']; ?>"><br/>
+
+				<input type="password" name="password" placeholder="Password" value="<?php echo @$data['password']; ?>"><br/>
+
+			<p class="login-fp">
+				Forgot password?
+			</p>
+
+
+
+						<button type="submit" name="do_login" class="btn">Sign in</button>
+
+						<a type="submit" href="signup.php" class="btn">Registration</a>
+			</form>
+
 		</div>
-		<div class="buttontest">
-			<a type="submit" href="signup.php" class="btn">Registration</a>
+
+		<div class="login-information">
+			<div>
+				<p class="login-text">
+					Project J
+				</p>
+				<p>
+				Blog system from scratch. Probably going to be my diploma project. This site created for storing, creating and exploring posts. Posts would have their tags, images, videos, descriptions.
+				</p>
+			</div>
 		</div>
+
 	</div>
-		 
-
-
-</form>
 
 </body>
 </html>

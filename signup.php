@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/user_profile.css">
-    <link rel="stylesheet" href="css/tag_page.css">
 	<link rel="stylesheet" href="css/menu.css">
+	<link rel="stylesheet" href="css/login.css">
 
+</head>
+<body>
 
 
 	<?php
@@ -117,28 +118,56 @@ include 'menu.php';
 
 ?>
 
-<form action="signup.php" method="POST" enctype="multipart/form-data">
-	<strong>Ваш логин</strong>
-	<input type="text" name="login" value="<?php echo @$data['login']; ?>"><br/>
+	<div class="reg-container">
 
-	<strong>FIO</strong>
-	<input type="text" name="full_name" value="<?php echo @$data['full_name']; ?>"><br/>
+		<div class="login-inputs">
 
-	<strong>Picture</strong>
-	<input type="file" name="file" value="<?php echo @$data['avatar']; ?>"><br/>
+			<p class="login-text">
+				Registration
+			</p>
 
-	<strong>Ваш Email</strong>
-	<input type="email" name="email" value="<?php echo @$data['email']; ?>"><br/>
+			<form action="signup.php" method="POST" enctype="multipart/form-data">
 
-	<strong>Ваш пароль</strong>
-	<input type="password" name="password" value="<?php echo @$data['password']; ?>"><br/>
+				<input type="text" name="login" placeholder="Your login" value="<?php echo @$data['login']; ?>"><br/>
 
-	<strong>Повторите пароль</strong>
-	<input type="password" name="password_2" value="<?php echo @$data['password_2']; ?>"><br/>
+				
+				<input type="text" name="full_name" placeholder="Your nickname" value="<?php echo @$data['full_name']; ?>"><br/>
 
-	<strong><?php captcha_show(); ?></strong>
-	<input type="text" name="captcha" ><br/>
+				<input type="file" name="file" placeholder="Your avatar" value="<?php echo @$data['avatar']; ?>"><br/>
 
-	<button type="submit" name="do_signup">Регистрация</button>
-	<a href="login.php" class="btn">Вход</a>
-</form>
+				
+				<input type="email" name="email" placeholder="Your email" value="<?php echo @$data['email']; ?>"><br/>
+
+
+				<input type="password" name="password" placeholder="Your password" value="<?php echo @$data['password']; ?>"><br/>
+
+				<input type="password" name="password_2" placeholder="Write your password again" value="<?php echo @$data['password_2']; ?>"><br/>
+
+				<input type="text" name="captcha" placeholder="<?php captcha_show(); ?>. What the answer?"><br/>
+				
+				<div class="twobuttons">
+					<button type="submit" name="do_signup" class="btn">Register</button>
+	<div>
+					<a type="submit" href="login.php" class="btn">Sign in</a>
+</div>
+				</div>
+
+			</form>
+
+		</div>
+
+		<div class="login-information">
+			<div>
+				<p class="login-text">
+					Project J
+				</p>
+				<p>
+					Blog system from scratch. Probably going to be my diploma project. This site created for storing, creating and exploring posts. Posts would have their tags, images, videos, descriptions.
+				</p>
+			</div>
+			
+		</div>
+
+	</div>
+	</body>
+</html>

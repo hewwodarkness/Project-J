@@ -1,5 +1,12 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/main.css">
 <link rel="stylesheet" href="css/menu.css">
+</head>
+<body>
     <div class="nav">
         <div class="menu">
             <div class="left-menu">
@@ -18,7 +25,7 @@
                 if ( isset ($_SESSION['user']) ) : ?>
 
                 <a class="create-post" href="form.php">
-                    <p>
+                    <p class="newtext">
                         Создать пост
                     </p>
                 </a>
@@ -38,8 +45,9 @@
                     
                 <?php else : ?>
                 
-                <a href="login.php">Авторизация</a>
+                <a class="fontpls" href="login.php">Авторизация</a>
                 <?php endif; ?>
             </div>
         </div>
     </div>
+</body>

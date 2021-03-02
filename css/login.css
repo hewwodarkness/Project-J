@@ -1,0 +1,92 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+.container {
+    background-color: #161b22;
+    width: 760px;
+    height: min-content;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 30px;
+    border-radius: 20px;
+    display: flex;
+}
+
+.reg-container {
+    background-color: #161b22;
+    width: 760px;
+    height: min-content;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 30px;
+    border-radius: 20px;
+    display: flex;
+}
+
+.login-inputs {
+    width: 50%;
+    padding: 40px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.login-information {
+    width: 50%;
+    padding: 40px;
+    background-color: #30363d;
+    border-radius: 0 20px 20px 0;
+    display: flex;
+    justify-content: center; /*Центрирование по горизонтали*/
+    align-items: center; 
+    text-align: center;
+}
+
+input {
+	background-color: #eee;
+	border: none;
+	padding: 12px 15px;
+	margin: 8px 0;
+	width: 75%;
+    border-radius: 10px;
+}
+
+.login-text {
+	font-weight: bold;
+	margin: 0;
+    font-size: 30px;
+}
+/* FP MEANS FORGOT PASSWORD */
+.login-fp { 
+    color: aliceblue;
+	font-size: 14px;
+	text-decoration: none;
+	margin: 15px 0;
+}
+
+button {
+	border-radius: 20px;
+	border: 0px;
+	background-color: #30363d;
+	color: #FFFFFF;
+	font-size: 12px;
+	font-weight: bold;
+	padding: 12px 45px;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+    font-family: "Poppins", sans-serif;
+}
+
+.btn {
+    border-radius: 20px;
+    background-color: #30363d;
+    color: #FFFFFF;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 12px 45px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    margin-left: 2px;
+}
+
+.twobuttons {
+    margin-top: 20px;
+}
