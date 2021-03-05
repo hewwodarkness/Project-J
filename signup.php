@@ -13,26 +13,26 @@
 
 	<?php
 	include 'goodconnection.php';
-    	
+
     ?>
-<?php 
+<?php
 include 'menu.php';
 	require 'db.php';
 
 	$data = $_POST;
 
 	function captcha_show(){
-		$questions = array(
-			1 => 'Столица России',
-			2 => 'Столица США',
-			3 => '2 + 3',
-			4 => '15 + 14',
-			5 => '45 - 10',
-			6 => '33 - 3'
+	$questions = array(
+		1 => 'Столица России',
+		2 => 'Столица США',
+		3 => '2 + 3',
+		4 => '15 + 14',
+		5 => '45 - 10',
+		6 => '33 - 3'
 		);
 		$num = mt_rand( 1, count($questions) );
 		$_SESSION['captcha'] = $num;
-		echo $questions[$num];
+	 	echo $questions[$num];
 	}
 
 	//если кликнули на button
@@ -65,7 +65,7 @@ include 'menu.php';
 		{
 			$errors[] = 'Пользователь с таким логином уже существует!';
 		}
-    
+
     //проверка на существование одинакового email
 		if ( R::count('users', "email = ?", array($data['email'])) > 0)
 		{
@@ -74,12 +74,12 @@ include 'menu.php';
 
 		//проверка капчи
 		$answers = array(
-			1 => 'москва',
-			2 => 'вашингтон',
-			3 => '5',
-			4 => '29',
-			5 => '35',
-			6 => '30'
+			1 => '1',
+			2 => '1',
+			3 => '1',
+			4 => '1',
+			5 => '1',
+			6 => '1'
 		);
 		if ( $_SESSION['captcha'] != array_search( mb_strtolower($_POST['captcha']), $answers, 'UTF-8' ) )
 		{
@@ -93,12 +93,12 @@ include 'menu.php';
 				// $upload_dir = 'upload/';
 				// $file = $_FILES['path']['name'];
 
-				// move_uploaded_file($_FILES['file']['tmp_name'], $upload_dir . $file); 
+				// move_uploaded_file($_FILES['file']['tmp_name'], $upload_dir . $file);
 
 			$file = "uploads/".$_FILES['file']['name'];
 			move_uploaded_file($_FILES['file']['tmp_name'], $file);
-			
-			
+
+
 			//ошибок нет, теперь регистрируем
 			$user = R::dispense('users');
 			$user->login = $data['login'];
@@ -130,12 +130,12 @@ include 'menu.php';
 
 				<input type="text" name="login" placeholder="Your login" value="<?php echo @$data['login']; ?>"><br/>
 
-				
+
 				<input type="text" name="full_name" placeholder="Your nickname" value="<?php echo @$data['full_name']; ?>"><br/>
 
 				<input type="file" name="file" placeholder="Your avatar" value="<?php echo @$data['avatar']; ?>"><br/>
 
-				
+
 				<input type="email" name="email" placeholder="Your email" value="<?php echo @$data['email']; ?>"><br/>
 
 
@@ -144,12 +144,12 @@ include 'menu.php';
 				<input type="password" name="password_2" placeholder="Write your password again" value="<?php echo @$data['password_2']; ?>"><br/>
 
 				<input type="text" name="captcha" placeholder="<?php captcha_show(); ?>. What the answer?"><br/>
-				
+
 				<div class="twobuttons">
 					<button type="submit" name="do_signup" class="btn">Register</button>
-	<div>
+				<div>
 					<a type="submit" href="login.php" class="btn">Sign in</a>
-</div>
+				</div>
 				</div>
 
 			</form>
@@ -165,7 +165,7 @@ include 'menu.php';
 					Blog system from scratch. Probably going to be my diploma project. This site created for storing, creating and exploring posts. Posts would have their tags, images, videos, descriptions.
 				</p>
 			</div>
-			
+
 		</div>
 
 	</div>

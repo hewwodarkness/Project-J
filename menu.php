@@ -1,11 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/main.css">
 <link rel="stylesheet" href="css/menu.css">
-</head>
 <body>
     <div class="nav">
         <div class="menu">
@@ -18,11 +11,10 @@
                     </h3>
                 </a>
             </div>
-            
+
             <div class="user-menu">
-                
-                <?php
-                if ( isset ($_SESSION['user']) ) : ?>
+
+                <?php if ( isset ($_SESSION['user']) ) : ?>
 
                 <a class="create-post" href="form.php">
                     <p class="newtext">
@@ -42,9 +34,8 @@
                     <a href="logout.php" class="logout">
                         Выход
                     </a>
-                    
+
                 <?php else : ?>
-                
                 <a class="fontpls" href="login.php">Авторизация</a>
                 <?php endif; ?>
             </div>

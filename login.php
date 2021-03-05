@@ -6,15 +6,16 @@
     <link rel="stylesheet" href="css/main.css">
 	<link rel="stylesheet" href="css/login.css">
 
-	
+
 </head>
 <body>
-<?php 
+<?php
 
-include 'menu.php';
-
+	include 'menu.php';
 	require 'db.php';
 	include 'goodconnection.php';
+
+
 	$connect = $conn;
 	$data = $_POST;
 	if ( isset($data['do_login']) )
@@ -28,7 +29,6 @@ include 'menu.php';
 				//если пароль совпадает, то нужно авторизовать пользователя
 				$_SESSION['user'] = $user;
 
-				
 				$check_user = mysqli_query($connect, "SELECT * FROM `users` WHERE `login` = '$user->login'");
 				$user1 = mysqli_fetch_assoc($check_user);
 
@@ -41,8 +41,9 @@ include 'menu.php';
 
 				 		// header('Location: main.php');
 
-				
+
 				header('Location: main.php');
+				// header('Location: http://www.projectj.top/');
 			}else
 			{
 				$errors[] = 'Неверно введен пароль!';
@@ -52,7 +53,7 @@ include 'menu.php';
 		{
 			$errors[] = 'Пользователь с таким логином не найден!';
 		}
-		
+
 		if ( ! empty($errors) )
 		{
 			//выводим ошибки авторизации
@@ -60,9 +61,18 @@ include 'menu.php';
 		}
 
 	}
-
 ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/main.css">
+	<link rel="stylesheet" href="css/login.css">
 
+
+</head>
+<body>
 
 	<div class="container">
 

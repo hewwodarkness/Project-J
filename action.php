@@ -1,15 +1,4 @@
-<?php include 'goodconnection.php'; ?>
-
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Авторизация и регистрация</title>
-    <link rel="stylesheet" href="assets/css/main.css">
-</head>
-<body>
-
-<?php
+<?php include 'goodconnection.php';
 require 'db.php';
 $img_name = $_FILES['my_image']['name'];
 $img_size = $_FILES['my_image']['size'];
@@ -24,7 +13,7 @@ if ($error === 0) {
         $img_ex = pathinfo($img_name, PATHINFO_EXTENSION);
         $img_ex_lc = strtolower($img_ex);
 
-        $allowed_exs = array("jpg", "jpeg", "png", "PNG", "gif"); 
+        $allowed_exs = array("jpg", "jpeg", "png", "PNG", "gif");
 
         if (in_array($img_ex_lc, $allowed_exs)) {
             $new_img_name = uniqid("IMG-", true).'.'.$img_ex_lc;
@@ -32,9 +21,9 @@ if ($error === 0) {
             move_uploaded_file($tmp_name, $img_upload_path);
 
             // Insert into Database
-            
+
                 // $post_id = abs( crc32( uniqid() ) );;;
-                
+
                // $dateCreated = $_POST["dpi"];
                 $user_id = $_SESSION['user']['id'];
                 $text = $_POST["text"];
@@ -53,15 +42,15 @@ if ($error === 0) {
                 $sql = "INSERT INTO `post` (`post_id`, `user_id`, `comment_id`, `tags_id`, `post_rating`, `image`, `text`)
                         VALUES             ('$post_id', '$user_id', '$post_id', '$post_id', '$post_rating', '$new_img_name', '$text')";
 
-                
+
                          $i = 0;
-                while ($i < count($pieces)) 
+                while ($i < count($pieces))
                 {
 
                     $pis = $pieces[$i];
                     echo $pis;
                     echo count($pieces);
-                    $sql3 = mysqli_query($conn, "SELECT * 
+                    $sql3 = mysqli_query($conn, "SELECT *
                                                  FROM tags
                                                  WHERE tag_name = '$pis'");
                     if(mysqli_num_rows($sql3)>=1)
@@ -87,7 +76,7 @@ if ($error === 0) {
 
                             $sql2 = "INSERT INTO `tags` (`tag_id`, `tag_name`)
                                             VALUES      ('$result23', '$pis')";
-                                   mysqli_query($conn, $sql2);         
+                                   mysqli_query($conn, $sql2);
 
                             $sql1 = "INSERT INTO `post_tags` (`post_id`, `tag_id`)
                               VALUES             ('$post_id', '$result23')";
@@ -96,26 +85,26 @@ if ($error === 0) {
                               $sql8 = "INSERT INTO `tags_moderators` (`tag_id`, `user_id`)
                               VALUES      ('$result23', '$user_id')";
 
-                            mysqli_query($conn, $sql8);       
+                            mysqli_query($conn, $sql8);
 
-                              
-                                            
+
+
                                             $i = $i + 1;
                         }
-                }           
-                
+                }
+
 
                 // $sql1 = "INSERT INTO `post_tags` (`post_id`, `tag_id`)
                 //               VALUES             ('$post_id', 1)";
-                
-                    // while ($i < count($pieces)) 
+
+                    // while ($i < count($pieces))
                     // {
                     //     $temp = $pieces[$i];
-                    //     $str_sql_query2 =  "SELECT tag_name 
-                    //                         FROM tags 
+                    //     $str_sql_query2 =  "SELECT tag_name
+                    //                         FROM tags
                     //                         WHERE tag_name = '$temp'";
 
-                    //     $result2 = mysqli_query($conn, $str_sql_query2);  
+                    //     $result2 = mysqli_query($conn, $str_sql_query2);
 
                     //     while (!mysqli_fetch_assoc($result2))
                     //     {
@@ -129,8 +118,8 @@ if ($error === 0) {
                     //             $temp1 = $pieces[$i];
                     //             $sql2 = "INSERT INTO `tags` (`tag_id`, `tag_name`)
                     //             VALUES          ('$result23', '$temp1')";
-                                
-                                
+
+
 
                     //             mysqli_query($conn, $sql2);
                     //             if ($sql2 === FALSE)
@@ -138,8 +127,8 @@ if ($error === 0) {
                     //             else
                     //                 echo 'Вы успешно зарегистрированы!';
                     //     }
-        
-                    //     // else 
+
+                    //     // else
                     //     // {
                     //     //     // echo "Ошибка записи в базу: ".mysqli_error($sql2);
                     //     //     continue;
@@ -147,20 +136,20 @@ if ($error === 0) {
                     // };
         // $i = 0;
         // echo count($pieces);
-            // while ($i < count($pieces)) 
+            // while ($i < count($pieces))
             // {
-            //     $str_sql_query2 =  "SELECT tag_name 
-            //                         FROM tags 
+            //     $str_sql_query2 =  "SELECT tag_name
+            //                         FROM tags
             //                         WHERE tag_name = '$pieces[$i]'";
 
             //             $lastid =  "SELECT tag_id
             //                         FROM tags
             //                         ORDER BY tag_id
             //                         DESC LIMIT 1";
-                    
+
             //         global $test;
             //     $result3 = mysqli_query($conn, $lastid);
-            //     $result2 = mysqli_query($conn, $str_sql_query2);  
+            //     $result2 = mysqli_query($conn, $str_sql_query2);
             //     // $result2 = mysqli_query($conn, $sql_select2);
                 // if (!mysqli_fetch_array($result2))
                 // {
@@ -172,13 +161,13 @@ if ($error === 0) {
                 //              mysqli_query($conn, $sql2);
                 // }
 
-                // else 
+                // else
                 // {
                 //     // echo "Ошибка записи в базу: ".mysqli_error($sql2);
                 //     continue;
                 // }
             // }
-            
+
 
 
             if ($sql === FALSE)
@@ -186,7 +175,7 @@ if ($error === 0) {
             else
                 echo 'Вы успешно зарегистрированы! <a href="main.php">На главную</a>';
             mysqli_query($conn, $sql);
-            
+
         } else {
             $em = "You can't upload files of this type";
         }

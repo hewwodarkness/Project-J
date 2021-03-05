@@ -1,4 +1,4 @@
-<?php 
+<?php
 include 'goodconnection.php';
 require 'db.php';
  ?>
@@ -18,13 +18,13 @@ require 'db.php';
     if ( isset ($_SESSION['user']) ) :
 
         $user_id = $_SESSION['user']['id'];
-        
+
         $text = $_POST['comment'];
         $post_rating = 1111;
         $a  = $_POST['a'];
 
         $lastid =  "SELECT comment_id
-                    FROM post_comments 
+                    FROM post_comments
                     ORDER BY comment_id
                     DESC LIMIT 1";
             $lastid1 = $lastid;
@@ -51,9 +51,9 @@ require 'db.php';
                 mysqli_query($conn, $sql1);
                 header('Location: main.php ');
     else :
-       
+
         header('Location: login.php ');
-        
+
     endif;
 $conn->close();
 ?>
