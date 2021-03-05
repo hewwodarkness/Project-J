@@ -11,14 +11,12 @@
 <body>
 
 
-	<?php
-	include 'goodconnection.php';
-
-    ?>
 <?php
-include 'menu.php';
-	require 'db.php';
 
+	include 'menu.php';
+	require 'db.php';
+	include 'goodconnection.php';
+	$connect = $conn;
 	$data = $_POST;
 
 	function captcha_show(){
@@ -108,10 +106,25 @@ include 'menu.php';
 			$user->full_name = $data['full_name'];
 			$user->avatar = $file;
 			R::store($user);
-			echo '<div style="color:dreen;">Вы успешно зарегистрированы!</div><hr>';
-			$_SESSION['username'] = $username;
-			$_SESSION['password'] = sha1($password);
-			header('Location: main.php ');
+			// echo '<div style="color:dreen;">Вы успешно зарегистрированы!</div><hr>';
+			// header('Location: main.php ');
+
+			$_SESSION['user'] = $user;
+
+				$check_user = mysqli_query($connect, "SELECT * FROM `users` WHERE `login` = '$user->login'");
+				$user1 = mysqli_fetch_assoc($check_user);
+
+
+						$_SESSION['user1'] = [
+							"id" => $user1['id'],
+							"full_name" => $user1['full_name'],
+							"avatar" => $user1['avatar'],
+						];
+
+				 		// header('Location: main.php');
+
+
+				header('Location: index.php');
 		}else
 		{
 			echo '<div id="errors" style="color:red;">' .array_shift($errors). '</div><hr>';

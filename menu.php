@@ -35,12 +35,7 @@
                             </p>
                         </div>
                     </a>
-                    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
-                        $("#user-menu-pfp").error(function () { // when image doesn't load correctly
-                        $(this).hide();             // hide it
-                        // $("#mynoimg").show();       // and show "no image" message instead
-                        }); -->
-                    </script>
+
                     <a href="logout.php" class="logout">
                         Выход
                     </a>
