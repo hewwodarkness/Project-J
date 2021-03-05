@@ -1,8 +1,8 @@
 <?php
-	require 'db.php';
+// require 'db.php';
+header('Location: main.php ');
 ?>
-
-<?php if ( isset ($_SESSION['logged_user']) ) : ?>
+<!-- <?php if ( isset ($_SESSION['logged_user']) ) : ?>
 	Авторизован! <br/>
 	Привет, <?php echo $_SESSION['logged_user']->login; ?>!<br/>
 
@@ -12,5 +12,5 @@
 Вы не авторизованы<br/>
 <a href="/login.php">Авторизация</a>
 <a href="/signup.php">Регистрация</a>
-<?php endif; ?>
+<?php endif; ?> -->
 

@@ -73,18 +73,18 @@ include 'menu.php';
 		}
 
 		//проверка капчи
-		$answers = array(
-			1 => '1',
-			2 => '1',
-			3 => '1',
-			4 => '1',
-			5 => '1',
-			6 => '1'
-		);
-		if ( $_SESSION['captcha'] != array_search( mb_strtolower($_POST['captcha']), $answers, 'UTF-8' ) )
-		{
-			$errors[] = 'Ответ на вопрос указан не верно!';
-		}
+		// $answers = array(
+		// 	1 => '1',
+		// 	2 => '1',
+		// 	3 => '1',
+		// 	4 => '1',
+		// 	5 => '1',
+		// 	6 => '1'
+		// );
+		// if ( $_SESSION['captcha'] != array_search( mb_strtolower($_POST['captcha']), $answers, 'UTF-8' ) )
+		// {
+		// 	$errors[] = 'Ответ на вопрос указан не верно!';
+		// }
 
 
 		if ( empty($errors) )
@@ -95,7 +95,8 @@ include 'menu.php';
 
 				// move_uploaded_file($_FILES['file']['tmp_name'], $upload_dir . $file);
 
-			$file = "uploads/".$_FILES['file']['name'];
+			$file = $_FILES['file']['name'];
+			// $file = "uploads/".$_FILES['file']['name'];
 			move_uploaded_file($_FILES['file']['tmp_name'], $file);
 
 
@@ -103,11 +104,13 @@ include 'menu.php';
 			$user = R::dispense('users');
 			$user->login = $data['login'];
 			$user->email = $data['email'];
-			$user->password = password_hash($data['password'], PASSWORD_DEFAULT); //пароль нельзя хранить в открытом виде, мы его шифруем при помощи функции password_hash для php > 5.6
+			$user->password = password_hash($data['password'], PASSWORD_DEFAULT); 
 			$user->full_name = $data['full_name'];
 			$user->avatar = $file;
 			R::store($user);
 			echo '<div style="color:dreen;">Вы успешно зарегистрированы!</div><hr>';
+			$_SESSION['username'] = $username;
+			$_SESSION['password'] = sha1($password);
 			header('Location: main.php ');
 		}else
 		{
