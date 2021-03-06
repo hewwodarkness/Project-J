@@ -6,7 +6,6 @@
     <link rel="stylesheet" href="css/main.css">
 	<link rel="stylesheet" href="css/menu.css">
 	<link rel="stylesheet" href="css/login.css">
-	<link rel="shortcut icon" href="uploads/siteicon.png" type="image/png">
 
 </head>
 <body>

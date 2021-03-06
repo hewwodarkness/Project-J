@@ -24,10 +24,10 @@ include 'menu.php';
 
 
     <php>
-    <form name="feedback" method="POST" action="action.php" enctype="multipart/form-data">
+    <form name="feedback" method="POST" action="action_new.php" enctype="multipart/form-data">
         <div class="intro">
 
-            <input type="file" name="my_image">
+            <input type="file" name="file">
             <p> text: </p>
             <h1 class="features__title"><input type="text" name="text"></h1>
             <p> tags: </p>

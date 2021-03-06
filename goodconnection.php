@@ -1,2 +1,2 @@
-<?php include 'db_conn1.php';
+<?php include 'db_conn.php';
 ?>
