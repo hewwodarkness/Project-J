@@ -1,11 +1,11 @@
 <?php include 'goodconnection.php';
  require 'db.php';
- if ($_SESSION['user1'])
- {
-     header('Location: ');
- }
- else
-     header('Location: login.php');
+//  if ($_SESSION['user1'])
+//  {
+//      header('Location: ');
+//  }
+//  else
+//      header('Location: login.php');
 
 
 include 'menu.php';

@@ -33,6 +33,7 @@
         <div></div>
 
         <div class="main1">
+        
             <?php
                 include 'div_posts.php';
             ?>

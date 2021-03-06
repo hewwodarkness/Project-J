@@ -2,6 +2,10 @@
 https://trello.com/b/09I6RUTX/project-j
 
 # Blog system from scratch. Main goal to create a similar site to joyreactor.cc.
+Supported browsers:
+1. Google Chrome
+2. Opera GX 
+3. Mozilla Firefox
 
 Features:
 1. Регистрация / Авторизация / Сессия. (После регистрации будет произведен автоматический вход в систему).
