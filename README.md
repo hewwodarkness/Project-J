@@ -1,8 +1,8 @@
-# joyreactor.cc
-https://trello.com/b/09I6RUTX/project-j
+# Project J
 
 * Blog system from scratch. 
 * Main goal to create a similar site to joyreactor.cc.
+* Tasks i need to create in the future - https://trello.com/b/09I6RUTX/project-j
 
 Supported browsers:
 1. Google Chrome
@@ -20,3 +20,4 @@ Features:
 
 # Diagram
 <img src="/uploads/db.png" style="display: block; margin-left: auto; margin-right: auto;" />
+
