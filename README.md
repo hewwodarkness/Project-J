@@ -1,7 +1,9 @@
 # joyreactor.cc
 https://trello.com/b/09I6RUTX/project-j
 
-# Blog system from scratch. Main goal to create a similar site to joyreactor.cc.
+* Blog system from scratch. 
+* Main goal to create a similar site to joyreactor.cc.
+
 Supported browsers:
 1. Google Chrome
 2. Opera GX 
