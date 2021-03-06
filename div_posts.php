@@ -1,7 +1,21 @@
 <div class="posts">
                 <div class="post">
+                
                     <?php foreach($row as $row): ?>
+                        <?php global $deletepost;
+                            $deletepost = $row['post_id']; ?>
 
+                            <?php if ($row['user_id'] == $_SESSION['user']['id']): ?>
+
+                                <div class="user-post-delete-post">
+                                    <form action="actionCommentdelete.php" method="post">
+
+                                        <input type="hidden" name="a1" value="<?php echo $deletepost ?>"/>
+                                        <button class="user-post-delete-post-button" type="submit">X</button>
+                                    </form>
+                                </div>
+
+                            <?php endif; ?>
                         <div class="user-post">
                         
                            <a href="user_profile.php?id=<?=$row['user_id']?>">
@@ -45,12 +59,11 @@
                             </script>
                             <script src="js/user-info4.js">
                             </script> -->
-                
+                            
                         </div>
                         
                         
                         <div class="post-tags">   
-
                             
                                 <?php
                                 global $myid;
