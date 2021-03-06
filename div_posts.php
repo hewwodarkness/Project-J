@@ -4,7 +4,7 @@
                     <?php foreach($row as $row): ?>
                         <?php global $deletepost;
                             $deletepost = $row['post_id']; ?>
-
+<?php if (isset($_SESSION['user'])): ?>
                             <?php if ($row['user_id'] == $_SESSION['user']['id']): ?>
 
                                 <div class="user-post-delete-post">
@@ -14,7 +14,9 @@
                                         <button class="user-post-delete-post-button" type="submit">X</button>
                                     </form>
                                 </div>
+                            <? else: ?>
 
+                            <?php endif; ?>
                             <?php endif; ?>
                         <div class="user-post">
                         
