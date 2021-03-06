@@ -6,8 +6,7 @@
                         
                            <a href="user_profile.php?id=<?=$row['user_id']?>">
                                 <img class="user-pfp"
-                                    src="
-                                        <?php
+                                    src="uploads/<?php
                                             $myid2 = $row['post_id'];
                                             $sql_select2 = "SELECT distinct b.avatar
                                                             from post a
@@ -15,12 +14,15 @@
                                                             on a.user_id = b.id
                                                             WHERE a.post_id = '$myid2'";
                                             $result2 = mysqli_query($conn, $sql_select2);
-                                                while ($row2 = mysqli_fetch_assoc($result2))
+                                                while ($row2 = mysqli_fetch_array($result2))
                                                     {
-                                                        echo $row2['avatar'];
+                                                        if ( $row2['avatar'] != NULL) :
+                                                            echo $row2['avatar'];
+                                                        else :
+                                                            echo "uploads/avatar-guest.png";
+                                                        endif;
                                                     } 
-                                        ?>
-                                    ">
+                                        ?>">
                             </a>
 
 
@@ -177,7 +179,14 @@
                                                     echo "<div class=\"block-comments-one-user-info\">";
 
                                                     echo "<a class=\"block-comments-one-user-info-link\" href=\"user_profile.php?id=".$row1['user_id']."\">";
-                                                        echo "<img class=\"block-comments-one-user-pfp\" src=" . $row1['avatar'] . ">";
+                                                        echo "<img class=\"block-comments-one-user-pfp\" src=\"";
+                                                            if ( $row1['avatar'] != NULL) :
+                                                                echo "uploads/". $row1['avatar'] . "\">";
+                                                                // echo ">\"";
+                                                            else :
+                                                                 echo "uploads/avatar-guest.png";
+                                                                 echo ">\"";
+                                                            endif;
                                                         echo "<p class=\"block-comments-one-user-username\">" . $row1['full_name'] . "</p>";
                                                     echo "</a>";
                      

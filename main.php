@@ -1,21 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/main.css">
-    <title>Main page</title>
-</head>
-<body>
-    <?php
+<?php
         require 'db.php';
         include 'goodconnection.php';
-    ?>
-    <?php
-        include 'menu.php';
-    ?>
 
-    <?php
+        include 'menu.php';
 
     $page = isset($_GET['page']) ? $_GET['page']: 1;
     $limit = 1000;
@@ -28,15 +15,28 @@
     $result = mysqli_query($conn, $sql_select);
     $row = mysqli_fetch_all($result, MYSQLI_ASSOC);
 ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/main.css">
+
+    <title>Main page</title>
+</head>
+<body>
+
 
     <div class="intro">
 
         <div></div>
         <div></div>
+
         <div class="main1">
-        <?php
-            include 'div_posts.php';
-        ?>
+            <?php
+                include 'div_posts.php';
+            ?>
+
             <div class="right-block">
                 <div class="right-block-tags">
                     <img class="tag-anime" src="uploads/tenor.gif">

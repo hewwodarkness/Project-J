@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="css/main.css">
 	<link rel="stylesheet" href="css/menu.css">
 	<link rel="stylesheet" href="css/login.css">
+	<link rel="shortcut icon" href="uploads/siteicon.png" type="image/png">
 
 </head>
 <body>
@@ -19,19 +20,19 @@
 	$connect = $conn;
 	$data = $_POST;
 
-	function captcha_show(){
-	$questions = array(
-		1 => 'Столица России',
-		2 => 'Столица США',
-		3 => '2 + 3',
-		4 => '15 + 14',
-		5 => '45 - 10',
-		6 => '33 - 3'
-		);
-		$num = mt_rand( 1, count($questions) );
-		$_SESSION['captcha'] = $num;
-	 	echo $questions[$num];
-	}
+	// function captcha_show(){
+	// $questions = array(
+	// 	1 => 'Столица России',
+	// 	2 => 'Столица США',
+	// 	3 => '2 + 3',
+	// 	4 => '15 + 14',
+	// 	5 => '45 - 10',
+	// 	6 => '33 - 3'
+	// 	);
+	// 	$num = mt_rand( 1, count($questions) );
+	// 	$_SESSION['captcha'] = $num;
+	//  	echo $questions[$num];
+	// }
 
 	//если кликнули на button
 	if ( isset($data['do_signup']) )
@@ -92,10 +93,10 @@
 				// $file = $_FILES['path']['name'];
 
 				// move_uploaded_file($_FILES['file']['tmp_name'], $upload_dir . $file);
-
+			$upload_dir = 'uploads/';
 			$file = $_FILES['file']['name'];
 			// $file = "uploads/".$_FILES['file']['name'];
-			move_uploaded_file($_FILES['file']['tmp_name'], $file);
+			move_uploaded_file($_FILES['file']['tmp_name'], $upload_dir . $file);
 
 
 			//ошибок нет, теперь регистрируем
@@ -159,7 +160,7 @@
 
 				<input type="password" name="password_2" placeholder="Write your password again" value="<?php echo @$data['password_2']; ?>"><br/>
 
-				<input type="text" name="captcha" placeholder="<?php captcha_show(); ?>. What the answer?"><br/>
+				
 
 				<div class="twobuttons">
 					<button type="submit" name="do_signup" class="btn">Register</button>
