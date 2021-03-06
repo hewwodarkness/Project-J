@@ -199,9 +199,25 @@ a {
   background-color: #30363d;
   height: max-content;
   margin-bottom: 5px;
-  padding: 10px;
+  padding: 10px 30px 10px 10px;
   border-radius: 10px;
 
+}
+
+.user-post-delete-post-button1 {
+  font-family: "Poppins", sans-serif;
+  font-weight: bold;
+  position: relative;
+  display: flex;
+  z-index: 3;
+  float: right;
+  background: transparent;
+  border: unset;
+  cursor: pointer;
+  color: aliceblue;
+  font-size: 20px; 
+  border-radius: 20px;
+  right: 0;
 }
 
 .block-comments-one-user-info {
@@ -350,6 +366,7 @@ a {
     margin-left: 10px;
     border-radius: 4px;
   }
+
 
   /* TAGS */
 

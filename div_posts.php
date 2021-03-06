@@ -4,11 +4,11 @@
                     <?php foreach($row as $row): ?>
                         <?php global $deletepost;
                             $deletepost = $row['post_id']; ?>
-<?php if (isset($_SESSION['user'])): ?>
+                        <?php if (isset($_SESSION['user'])): ?>
                             <?php if ($row['user_id'] == $_SESSION['user']['id']): ?>
 
                                 <div class="user-post-delete-post">
-                                    <form action="actionCommentdelete.php" method="post">
+                                    <form action="actionPostDelete.php" method="post">
 
                                         <input type="hidden" name="a1" value="<?php echo $deletepost ?>"/>
                                         <button class="user-post-delete-post-button" type="submit">X</button>
@@ -191,6 +191,17 @@
                                                 //     echo "<p>" . $row2['full_name'] . "</p>";
                                                 // }
                                                 echo "<div class=\"block-comments-one\">";
+                                                if ($row1['user_id'] == $_SESSION['user']['id']):
+                                                    global $deletecomment;
+                                                    $deletecomment = $row1['comment_id'];
+                                                    echo "<div class=\"user-post-delete-post\">";
+                                                        echo "<form action=\"actionCommentDelete.php\" method=\"post\">";
+                    
+                                                            echo "<input type=\"hidden\" name=\"a1\" value=\"$deletecomment\"/>";
+                                                            echo "<button class=\"user-post-delete-post-button\" type=\"submit\">X</button>";
+                                                        echo "</form>";
+                                                    echo "</div>";
+                                                endif;
                                                     echo "<div class=\"block-comments-one-user-info\">";
 
                                                     echo "<a class=\"block-comments-one-user-info-link\" href=\"user_profile.php?id=".$row1['user_id']."\">";
