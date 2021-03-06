@@ -41,10 +41,10 @@
                                             } 
                                 ?>
                             </div>
-                            <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js">
+                            <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js">
                             </script>
                             <script src="js/user-info4.js">
-                            </script>
+                            </script> -->
                 
                         </div>
                         
@@ -271,7 +271,7 @@
                     <?php endforeach; ?>
 
                 </div>
-                <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js">
+                <!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js">
                                 // $('.post-comments').click(function(){
                                 //     element = document.getElementById(<?=$row['comment_id']?>);
                                 // $(element).fadeToggle(0);
@@ -301,5 +301,5 @@
                                     //     $(".content").css("background-color", "");
                                     //     $(this).css("background-color", "red");
                                     // });
-                            </script>
+                            </script> -->
             </div>
