@@ -19,7 +19,7 @@
                                                         if ( $row2['avatar'] != NULL) :
                                                             echo $row2['avatar'];
                                                         else :
-                                                            echo "uploads/avatar-guest.png";
+                                                            echo "avatar-guest.png";
                                                         endif;
                                                     } 
                                         ?>">

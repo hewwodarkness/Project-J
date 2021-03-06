@@ -166,9 +166,12 @@ include 'goodconnection.php';
 
 
                             <img class="right-block-moderators-each-pfp"
-                                src="
-                                    <?=$row99['avatar']?>
-                                ">
+                                src="uploads/<?php if ( $row99['avatar'] != NULL) :
+                                    echo $row99['avatar'];
+                                    else :
+                                        echo "avatar-guest.png";
+                                    endif;
+                                    ?>">
 
                         <div class="right-block-moderators-each-name">
                             <p>
