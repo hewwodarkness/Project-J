@@ -121,6 +121,14 @@
 							"avatar" => $user1['avatar'],
 						];
 
+
+						
+						$gtest = $user1['id'];
+						$gtest1 = 2;
+						
+						$sql1 = "INSERT INTO `users_medals` (`medal_id`, `user_id`)
+						VALUES             ('$gtest1', '$gtest')";
+			   			mysqli_query($conn, $sql1);
 				 		// header('Location: main.php');
 
 

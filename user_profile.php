@@ -1,6 +1,6 @@
 <?php
-        require 'db.php';
-    include("menu.php");
+    require 'db.php';
+    include 'menu.php';
     include 'goodconnection.php';
     $id = $_GET['id'];
 
@@ -20,6 +20,23 @@
                     ";
     $result = mysqli_query($conn, $sql_select);
     $row = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+    // $sql_select7 =  "SELECT distinct *
+    //                 FROM tags_medals t
+    //                 INNER JOIN users_medals u
+    //                 ON t.user_id = '$id'
+    //                 WHERE t.medal_id = u.medal_id
+    //                 ";
+    $sql_select7 =  "SELECT *
+                     FROM users_medals u
+                     INNER JOIN tags_medals t
+                     ON u.user_id = '$id'
+                     WHERE u.medal_id = t.medal_id
+    ";
+    $result7 = mysqli_query($conn, $sql_select7);
+    $row7 = mysqli_fetch_all($result7, MYSQLI_ASSOC);
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -28,6 +45,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/tag_page.css">
     <link rel="stylesheet" href="css/user_profile.css">
     <title>User Page</title>
 </head>
@@ -56,6 +74,35 @@
                 <p class="user-info-link">
                     u/userlink
                 </p>
+        </div>
+        <div class="right-block-avaiable-medals">
+            <p>
+                Medals user have:
+            </p>
+
+            <div class="right-block-avaiable-medals-list">
+                <?php foreach($row7 as $row7): ?>
+                    <div class="right-block-avaiable-medals-each">
+
+                        <div>
+
+                            <img class="user-pfp"
+                                src="
+                                    <?=$row7['medal_avatar']?>
+                                ">
+                        </div>
+
+                        <div class="right-block-avaiable-medals-each-name">
+                            <?=$row7['medal_name']?>
+                        </div>
+
+
+                    </div>
+
+                <?php endforeach; ?>
+
+            </div>
+
         </div>
     </div>
 
