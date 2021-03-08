@@ -9,6 +9,47 @@
     display: flex;
 }
 
+.tag-information-top-pfp-edit {
+    display: flex;
+    position: relative;
+    width: 180px;
+}
+
+input[type="file"] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: #555;
+    color: white;
+    font-size: 16px;
+    height: 30px;
+    width: 30px;
+    border: none;
+    cursor: pointer;
+    border-radius: 20px;
+}
+
+
+.tag-information-top-pfp-edit-button {
+    position: absolute;
+    top: 25;
+    right: 0;
+    background-color: #555;
+    color: white;
+    font-size: 16px;
+    height: 30px;
+    width: 30px;
+    border: none;
+    cursor: pointer;
+    border-radius: 20px;
+
+}
+
+.tag-information-top-pfp-edit-button p{
+    text-align: center;
+    vertical-align: middle;
+
+}
 .tag-information-image {
     height: 100px;
     width: 180px;
@@ -98,4 +139,5 @@
 .right-block-avaiable-medals-each-name {
     font-size: 14px;
 }
+
 

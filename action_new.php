@@ -48,6 +48,10 @@
             $sql5 = "INSERT INTO `post_tags` (`post_id`, `tag_id`)
                   VALUES             ('$post_id', '$result233')";
                   mysqli_query($conn, $sql5);
+
+            $sql166 = "INSERT INTO `tags_followers` (`tag_id`, `user_id`)
+            VALUES             ('$result23', '$user_id')";
+            mysqli_query($conn, $sql166);
         }
         else
             {
@@ -72,6 +76,9 @@
 
                 mysqli_query($conn, $sql8);
 
+                $sql16 = "INSERT INTO `tags_followers` (`tag_id`, `user_id`)
+                  VALUES             ('$result23', '$user_id')";
+                  mysqli_query($conn, $sql16);
 
 
                                 $i = $i + 1;

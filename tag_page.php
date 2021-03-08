@@ -6,7 +6,7 @@ include 'goodconnection.php';
 //
 //
 //
-    $sql_select4 =  "SELECT distinct tag_id, tag_name, tag_description
+    $sql_select4 =  "SELECT distinct tag_id, tag_name, tag_description, tag_picture
                     FROM tags
                     WHERE tag_id ='$id'
                     ";
@@ -71,6 +71,9 @@ include 'goodconnection.php';
 
     $row = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
+// // // // // // 
+// // // // // // 
+// // // // // // 
 
     $sql_select12 =  "SELECT COUNT(*) as count FROM tags_followers WHERE tag_id = '$id'";
 
@@ -82,6 +85,9 @@ include 'goodconnection.php';
 
     $row12 = mysqli_fetch_array($result12, MYSQLI_ASSOC);
 
+// // // // // // 
+// // // // // // 
+// // // // // // 
 
     $sql_select13 =  "SELECT COUNT(*) as count FROM post_tags WHERE tag_id = '$id'";
 
@@ -127,12 +133,42 @@ include 'goodconnection.php';
 
     <div class="tag-information-top">
 
-        <div>
+        <div class="tag-information-top-pfp-edit">
             <img class="tag-information-image" src="uploads/<?php if ($row4['tag_picture'] != NULL) :
                         echo $row4['tag_picture'];
                     else :
                         echo "avatar-guest.png";
                     endif;?>" alt="">
+                    <?php global $edittagpfp;
+                        $edittagpfp = $id; ?>
+                    <?php if (isset($_SESSION['user'])): ?>
+                            <?php if ($_SESSION['user1']['id'] == 2): ?>
+
+                    <form action="actionTagEditPicture.php" method="post" enctype="multipart/form-data">
+                        <input type="hidden" name="a2" value="<?php echo $edittagpfp ?>"/>
+                        <!-- <div class="tag-information-top-pfp-edit-button" id="yourBtn" onclick="getFile()">
+                            test
+                        </div>
+                        <div style='height: 0px;width: 0px; overflow:hidden;'>
+                            <input id="upfile" type="file" value="upload" onchange="sub(this)" />
+                        </div> -->
+                       
+                        <!-- <input type="submit" value='submit' > -->
+
+                        <input type="file" name="file">
+                        <button class="tag-information-top-pfp-edit-button" type="submit">
+                            <p>
+                                x
+                            </p>
+                        </button>
+                    </form>
+                    <? else: ?>
+
+<?php endif; ?>
+<?php endif; ?>
+            
+                    
+            
         </div>
 
 <!--  -->
