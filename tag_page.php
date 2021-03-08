@@ -6,7 +6,7 @@ include 'goodconnection.php';
 //
 //
 //
-    $sql_select4 =  "SELECT distinct tag_id, tag_name
+    $sql_select4 =  "SELECT distinct tag_id, tag_name, tag_description
                     FROM tags
                     WHERE tag_id ='$id'
                     ";
@@ -71,6 +71,28 @@ include 'goodconnection.php';
 
     $row = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
+
+    $sql_select12 =  "SELECT COUNT(*) as count FROM tags_followers WHERE tag_id = '$id'";
+
+    $result12 = mysqli_query($conn, $sql_select12);
+
+    if (!$result12) {
+        die('Invalid query: ' . mysqli_error($conn));
+    }
+
+    $row12 = mysqli_fetch_array($result12, MYSQLI_ASSOC);
+
+
+    $sql_select13 =  "SELECT COUNT(*) as count FROM post_tags WHERE tag_id = '$id'";
+
+    $result13 = mysqli_query($conn, $sql_select13);
+
+    if (!$result13) {
+        die('Invalid query: ' . mysqli_error($conn));
+    }
+
+    $row13 = mysqli_fetch_array($result13, MYSQLI_ASSOC);
+
     // $post_id1 = mysqli_query($conn, $sql_select)->fetch_assoc()['post_id'];
     // echo $post_id1;
 
@@ -106,7 +128,11 @@ include 'goodconnection.php';
     <div class="tag-information-top">
 
         <div>
-            <img class="tag-information-image" src="uploads/tenor.gif" alt="">
+            <img class="tag-information-image" src="uploads/<?php if ($row4['tag_picture'] != NULL) :
+                        echo $row4['tag_picture'];
+                    else :
+                        echo "avatar-guest.png";
+                    endif;?>" alt="">
         </div>
 
 <!--  -->
@@ -119,14 +145,29 @@ include 'goodconnection.php';
                 <?=$row4['tag_name']?>
             </div>
 
-            <p class="user-info-link">
-                u/userlink
+            <p class="tag-information-description">
+                <?php if ($row4['tag_description'] != NULL) :
+                        echo $row4['tag_description'];
+                    else :
+                        echo "Just a regular tag";
+                    endif;?>
+
+                
             </p>
+            <div class="tag-information-bottom">
 
-            <div class="tag-information-followers">
+                <div class="tag-information-bottom-info">
+                    Followers: <?=$row12['count']?>
+                </div>
 
+                <div class="tag-information-bottom-info">
+                    Posts: <?=$row13['count']?>
+                </div>
+
+                <!-- <div class="tag-information-bottom-info">
+                    Followers: <?=$row12['count']?>
+                </div> -->
             </div>
-
         </div>
 
     </div>

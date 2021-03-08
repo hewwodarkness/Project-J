@@ -11,11 +11,29 @@
 
 .tag-information-image {
     height: 100px;
+    width: 180px;
     border-radius: 20px;
+    object-fit: cover;
 }
 
 .tag-information-nlf {
     margin-left: 10px;
+}
+
+.tag-information-name {
+    font-size: 22px;
+}
+
+.tag-information-description {
+    font-size: 12px;
+}
+
+.tag-information-bottom {
+    display: flex;
+}
+
+.tag-information-bottom-info {
+    margin-right: 10px;
 }
 
 .right-block-moderators {

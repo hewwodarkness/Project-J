@@ -191,6 +191,7 @@
                                                 //     echo "<p>" . $row2['full_name'] . "</p>";
                                                 // }
                                                 echo "<div class=\"block-comments-one\">";
+                                                if (isset($_SESSION['user'])):
                                                 if ($row1['user_id'] == $_SESSION['user']['id']):
                                                     global $deletecomment;
                                                     $deletecomment = $row1['comment_id'];
@@ -201,6 +202,8 @@
                                                             echo "<button class=\"user-post-delete-post-button\" type=\"submit\">X</button>";
                                                         echo "</form>";
                                                     echo "</div>";
+                                                    else :
+                                                endif;
                                                 endif;
                                                     echo "<div class=\"block-comments-one-user-info\">";
 
