@@ -1,0 +1,39 @@
+.mainform {
+    display: flex;
+    margin-top: 30px;
+    border-radius: 10px;
+    margin-right: auto;
+    margin-left: auto;
+    
+}
+
+.formpost {
+    width: 400px;
+    margin-top: 50px;
+    background-color: #161b22;
+    border-radius: 20px;
+    padding: 20px 20px 20px 20px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+.formcreate {
+
+}
+
+.tagslist {
+    display: flex;
+    flex-wrap:wrap;
+}
+
+.post-tag {
+    margin-top: 5px;
+}
+input {
+	background-color: #eee;
+	border: none;
+	padding: 12px 15px;
+	margin: 8px 0;
+	width: 100%;
+    border-radius: 10px;
+}

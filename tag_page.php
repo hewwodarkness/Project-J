@@ -99,18 +99,6 @@ include 'goodconnection.php';
 
     $row13 = mysqli_fetch_array($result13, MYSQLI_ASSOC);
 
-    // $post_id1 = mysqli_query($conn, $sql_select)->fetch_assoc()['post_id'];
-    // echo $post_id1;
-
-    // $sql_select7 = "SELECT distinct *
-    //                 from users u
-    //                 INNER JOIN post s
-    //                 WHERE s.post_id = '$post_id1'
-    //                 ";
-
-    // $result7 = mysqli_query($conn, $sql_select7);
-    // $row7 = mysqli_fetch_all($result7, MYSQLI_ASSOC);
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -146,14 +134,6 @@ include 'goodconnection.php';
 
                     <form action="actionTagEditPicture.php" method="post" enctype="multipart/form-data">
                         <input type="hidden" name="a2" value="<?php echo $edittagpfp ?>"/>
-                        <!-- <div class="tag-information-top-pfp-edit-button" id="yourBtn" onclick="getFile()">
-                            test
-                        </div>
-                        <div style='height: 0px;width: 0px; overflow:hidden;'>
-                            <input id="upfile" type="file" value="upload" onchange="sub(this)" />
-                        </div> -->
-                       
-                        <!-- <input type="submit" value='submit' > -->
 
                         <input type="file" name="file">
                         <button class="tag-information-top-pfp-edit-button" type="submit">
@@ -199,10 +179,6 @@ include 'goodconnection.php';
                 <div class="tag-information-bottom-info">
                     Posts: <?=$row13['count']?>
                 </div>
-
-                <!-- <div class="tag-information-bottom-info">
-                    Followers: <?=$row12['count']?>
-                </div> -->
             </div>
         </div>
 
@@ -259,22 +235,6 @@ include 'goodconnection.php';
                             </p>
 
                         </div>
-                    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js">
-                        $(document).ready(function() {
-                            $(".right-block-moderators-each-name").each(function() {
-                                var targetHeight = $(this).clone().html("&nbsp;").insertAfter($(this));
-
-                                while ($(this).height() > targetHeight.height()) {
-                                    $(this).css("font-size", parseInt($(this).css("font-size")) - 1);
-                                }
-
-                                targetHeight.remove();
-                            });
-                        });
-                    </script> -->
-
-
-
 
                     </div>
 

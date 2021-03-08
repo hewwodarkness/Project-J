@@ -57,10 +57,7 @@
                                             } 
                                 ?>
                             </div>
-                            <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js">
-                            </script>
-                            <script src="js/user-info4.js">
-                            </script> -->
+
                             
                         </div>
                         
@@ -175,21 +172,6 @@
                                    
                                         while ($row1 = mysqli_fetch_assoc($result1))
                                             {
-                                                // $sql_select2 = "SELECT distinct u.full_name, u.avatar
-                                                //                 from post_comments g 
-                                                //                 inner join post b 
-                                                //                 on g.post_id = '$myid'
-                                                //                 inner join comments c 
-                                                //                 on g.comment_id = c.comment_id
-                                                //                 inner join users u
-                                                //                 on c.user_id = u.id";
-                                                                    
-                                                                    
-                                                // $result2 = mysqli_query($conn, $sql_select2);
-                                                // while ($row2 = mysqli_fetch_assoc($result2))
-                                                // {
-                                                //     echo "<p>" . $row2['full_name'] . "</p>";
-                                                // }
                                                 echo "<div class=\"block-comments-one\">";
                                                 if (isset($_SESSION['user'])):
                                                 if ($row1['user_id'] == $_SESSION['user']['id']):
@@ -243,16 +225,7 @@
                                             <?php echo $my ?>
                                         </p> -->
                                         <?php 
-                                            // $lastid = "SELECT comment_id
-                                            // FROM post_comments 
-                                            // ORDER BY comment_id
-                                            // DESC LIMIT 1";
-                                            // $lastid1 = $lastid;
-                                            // $result2 = mysqli_query($conn, $lastid1);
-                                            // while ($row2 = mysqli_fetch_assoc($result2))
-                                            // {
-                                            //     echo $row2['comment_id'];
-                                            // }
+
                                         ?>
                                         <input type="hidden" name="a" value="<?php echo $my ?>" />
                                         <input class="comment1" type="comment" name="comment" placeholder="Press your comment here">
@@ -261,74 +234,12 @@
 
                                 </div>
                             </div>
-
-                           
-
-                            <script>
-
-                                // var comm1 = document.getElementById('<?=$row['comment_id']?>');
-                                // var comm2 = document.getElementsByClassName("post-comments")[0];
-                                
-                                
-                                // comm1.onclick = function() {
-                                // comm1.style.display = "none";
-                                // }
-
-                                // comm1.addEventListener("click", () => {
-                                //     comm2.classList.toggle("active");
-                                // });
-                                // var div2 = document.getElementsByClassName("modal")[0];
-
-                               
-                            // Get the modal
-                            
-
-                            // Get the image and insert it inside the modal - use its "alt" text as a caption
-                            // var img2 = document.getElementById('<?=$row['comment_id']?>');
-                            
-                            // img2.onclick = function(){
-                            //     img2.style.display = "none";
-                                
-                            // }
-
-
-                            </script>
-                           
+  
 
                         </div>
                         
                     <?php endforeach; ?>
 
                 </div>
-                <!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js">
-                                // $('.post-comments').click(function(){
-                                //     element = document.getElementById(<?=$row['comment_id']?>);
-                                // $(element).fadeToggle(0);
-                                // }
-
-                                
-                                // const container = document.querySelector('.post-comments');
-
-                                // container.addEventListener('click', function(e) {
-                                //     const items = document.querySelectorAll('.block-comments')
-                                //     const target = e.target
-                                // Array.from(items).forEach(item => {
-                                //     item.classList.remove('active')
-                                // })
-                                // target.classList.add('active')
-                                // })
-
-                                    // jQuery(function($) {
-                                    //     $('.post-comments').click(function(){
-                                    //         $(this).closest('.post-comments').css("background-color", "red");
-                                    //     });
-                                    // });
-
-                                    // $(".post-comments").click(function() {
-                                        
-                                    //     alert(".block-comments".id);
-                                    //     $(".content").css("background-color", "");
-                                    //     $(this).css("background-color", "red");
-                                    // });
-                            </script> -->
+                
             </div>

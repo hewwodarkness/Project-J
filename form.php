@@ -9,49 +9,58 @@
 
 
 include 'menu.php';
+
+$sql_select49 =  "SELECT *
+                FROM tags";
+
+$result49 = mysqli_query($conn, $sql_select49);
+$row49 = mysqli_fetch_all($result49, MYSQLI_ASSOC);
+
 ?>
 <!DOCTYPE html>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/form.css">
     <link rel="shortcut icon" href="img/8.png" type="image/png">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
 
+<div class="formpost"> 
+    <div class="formcreate">
+        
+    <script> 
+        document.querySelector('.post-tag').addEventListener('change', function(e) {
+        document.querySelector('.text1').textContent = e.target.nextElementSibling.textContent;
+        });
+    </script>
+        <form name="feedback" method="POST" action="action_new.php" class="form-booking" enctype="multipart/form-data">
+
+            <p> Tags: </p>
+            <div class="tagslist">
+                <?php foreach($row49 as $row49):
+
+                    echo "<a class=\"post-tag-style\">";
+                    echo "<div class=\"post-tag\">";
+                    echo "<p>" . $row49['tag_name'] . "</p>";
+                    echo "</div>";
+                    echo "</a>";
+                endforeach;?>
 
 
+            </div>
 
-    <php>
-    <form name="feedback" method="POST" action="action_new.php" enctype="multipart/form-data">
-        <div class="intro">
-
-            <input type="file" name="file">
-            <p> text: </p>
-            <h1 class="features__title"><input type="text" name="text"></h1>
-            <p> tags: </p>
             <h1 class="tagsss"><input type="text1" name="text1"></h1>
+            <p> Text: </p>
+            <h1 class="features__title"><input type="text" name="text"></h1>
+            <p> Picture: </p>
+            <input type="file" name="file">
+        
+            <input type="submit" name="send" value="Отправить">
+        </form>
 
-        </div>
+    </div>
 
-          <!-- <?php
-                $sql_select1 = "SELECT tag_name
-                                from tags";
+</div>
 
-                $result1 = mysqli_query($conn, $sql_select1);
-                    while ($row1 = mysqli_fetch_assoc($result1))
-                        {
-                            echo "<div class=\"post-tag\">";
-                            echo "<p>" . $row1['tag_name'] . "</p>";
-                            echo "</div>";
-                        }
-            ?> -->
-          <!-- Alert -->
-
-          <input type="submit" name="send" value="Отправить">
-                        </form>
-
-      </div>
-   </body>
+</body>
 </html>
