@@ -62,10 +62,11 @@
 
     <div class="right-block">
         <div class="right-block-tags">
+        
                 <img class="user-info-img" src="uploads/<?php if ( $row4['avatar'] != NULL) :
                     echo $row4['avatar'];
                 else :
-                    echo "uploads/avatar-guest.png";
+                    echo "avatar-guest.png";
                 endif;
                 ?>" alt="">
                 <p class="user-info-name">

@@ -196,7 +196,7 @@
                                                                 // echo ">\"";
                                                             else :
                                                                  echo "uploads/avatar-guest.png";
-                                                                 echo ">\"";
+                                                                 echo "\">";
                                                             endif;
                                                         echo "<p class=\"block-comments-one-user-username\">" . $row1['full_name'] . "</p>";
                                                     echo "</a>";
