@@ -24,7 +24,7 @@
 
                 <a class="create-post" href="form.php">
                     <p class="newtext">
-                        Создать пост
+                        Create post
                     </p>
                 </a>
                     
@@ -41,9 +41,11 @@
                             </p>
                         </div>
                     </a>
-
+                    <a href="user_settings.php" class="user-menu-settings">
+                        Settings
+                    </a>
                     <a href="logout.php" class="logout">
-                        Выход
+                        Log out
                     </a>
 
                 <?php else : ?>

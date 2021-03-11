@@ -91,7 +91,7 @@
                                 <?=$row['text']?>
                             </p>
                         </div>
-                        <img class="post-image" id="<?=$row['text']?>" alt="KEKW" src="uploads/<?=$row['image']?>" >
+                        <img class="post-image" id="<?=$row['text']?>" alt="" src="uploads/<?=$row['image']?>" >
                         
                         <!-- Modal -->
 

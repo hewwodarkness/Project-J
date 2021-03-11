@@ -69,6 +69,9 @@
 .user-menu-name {
   width: 50px;
 }
+.user-menu-settings {
+  margin-right: 20px;
+}
 
 .logout {
   font-family: "Poppins", sans-serif;
