@@ -99,6 +99,10 @@ include 'goodconnection.php';
 
     $row13 = mysqli_fetch_array($result13, MYSQLI_ASSOC);
 
+
+    $db_query15 = "UPDATE tags SET `tag_count_visit` = `tag_count_visit` + 1 WHERE tag_id = '$id'";
+
+    mysqli_query($conn, $db_query15);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -130,7 +134,7 @@ include 'goodconnection.php';
                     <?php global $edittagpfp;
                         $edittagpfp = $id; ?>
                     <?php if (isset($_SESSION['user'])): ?>
-                            <?php if ($_SESSION['user1']['id'] == 2): ?>
+                            <?php if ($_SESSION['user1']['id'] == 2 || $_SESSION['user1']['id'] == 6): ?>
 
                     <form action="actionTagEditPicture.php" method="post" enctype="multipart/form-data">
                         <input type="hidden" name="a2" value="<?php echo $edittagpfp ?>"/>

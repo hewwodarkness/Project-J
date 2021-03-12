@@ -14,6 +14,15 @@
                     LIMIT $limit OFFSET $offset";
     $result = mysqli_query($conn, $sql_select);
     $row = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+
+    $sql_select456 =  "SELECT *
+                    FROM tags 
+                    order by tag_count_visit DESC
+                    LIMIT 5";
+    $result456 = mysqli_query($conn, $sql_select456);
+    $row456 = mysqli_fetch_all($result456, MYSQLI_ASSOC);
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -40,11 +49,24 @@
 
             <div class="right-block">
                 <div class="right-block-tags">
-                    <img class="tag-anime" src="uploads/tenor.gif">
-                    <img class="tag-anime" src="1.jpg">
-                    <img class="tag-anime" src="1.jpg">
-                    <img class="tag-anime" src="1.jpg">
+                    Popular tags:
+                    <?php foreach($row456 as $row456): ?>
+                        <a href="tag_page.php?tag_id=<?=$row456['tag_id']?>">
+                            <div class="right-block-tags-tag">
+                                <img class="tag-anime" src="uploads/<?php if ($row456['tag_picture'] != NULL) :
+                                echo $row456['tag_picture'];
+                            else :
+                                echo "avatar-guest.png";
+                            endif;?>">
+                                <p>
+                                    <?=$row456['tag_name']?>
+                                </p>
+                            </div>
+                        </a>
+                    <?php endforeach; ?>
                 </div>  
+                <!-- <div class="right-block-tags">
+                </div> -->
             </div>
 
         
