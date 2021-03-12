@@ -3,11 +3,6 @@
 
 include 'menu.php';
 
-$sql_select49 =  "SELECT *
-                FROM tags";
-
-$result49 = mysqli_query($conn, $sql_select49);
-$row49 = mysqli_fetch_all($result49, MYSQLI_ASSOC);
 global $iduser;
 $iduser = $_SESSION['user']['id'];
 ?>
@@ -29,6 +24,16 @@ $iduser = $_SESSION['user']['id'];
             <p> Picture: </p>
             <input type="file" name="file">
         
+            <input type="submit" name="send" value="Отправить">
+        </form>
+
+        <form name="feedback1" method="POST" action="actionUserSettingsNicknameChange.php" class="form-booking">
+
+            <input type="hidden" name="a3" value="<?php echo $iduser ?>" />
+           
+            <p> Nickname: </p>
+            <input type="full_name" name="full_name" placeholder="Your nickname"><br/>
+
             <input type="submit" name="send" value="Отправить">
         </form>
 
