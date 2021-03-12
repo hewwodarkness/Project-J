@@ -1,6 +1,7 @@
 <link rel="icon" href="uploads/favicon.ico" type="image/x-icon">
 <link rel="shortcut icon" href="uploads/favicon.ico" type="image/x-icon">
 <link rel="stylesheet" href="css/menu.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 
 
@@ -42,7 +43,7 @@
                         </div>
                     </a>
                     <a href="user_settings.php" class="user-menu-settings">
-                        Settings
+                        <img class="user-menu-settings" src="uploads/3524640.svg">
                     </a>
                     <a href="logout.php" class="logout">
                         Log out

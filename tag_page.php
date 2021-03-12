@@ -203,13 +203,21 @@ include 'goodconnection.php';
 
     <div class="right-block">
         <div class="right-block-tags">
-                <img class="user-info-img" src="uploads/tenor.gif" alt="">
-                <p class="user-info-name">
-                    <?=$row4['tag_name']?>
-                </p>
-                <p class="user-info-link">
-                    u/userlink
-                </p>
+        <a href="tag_page.php?tag_id=<?=$row4['tag_id']?>">
+                            <div class="right-block-tags-tag">
+                                <img class="tag-anime" src="uploads/<?php if ($row4['tag_picture'] != NULL) :
+                                echo $row4['tag_picture'];
+                            else :
+                                echo "avatar-guest.png";
+                            endif;?>">
+                                <p>
+                                    <?=$row4['tag_name']?>
+                                </p>
+                            </div>
+                        </a>
+                <!-- <p class="user-info-link">
+                    Tag id: <?=$row4['tag_id']?>
+                </p> -->
         </div>
         <div class="right-block-moderators">
 

@@ -412,12 +412,16 @@ a {
     opacity: 0.8;
   } */
 
-@media(max-width: 1000px) 
-{
+  @media only screen and (max-device-width: 700px)
+  { 
   .posts {
-    width: 70%;
+    width: 700px;
+    margin: 10px 10px 10px 10px ;
   }
-  .right-block {
-    width: 25%;
+  .intro {
+    width: 700px;
+  }
+  .main1 {
+    width: 700px;
   }
 }
