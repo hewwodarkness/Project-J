@@ -60,6 +60,7 @@ include 'goodconnection.php';
                     ON p.post_id = t.post_id
                     INNER JOIN tags m
                     ON t.tag_id = '$id'
+                    order by dateCreated DESC
                     ";
 
 

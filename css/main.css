@@ -412,8 +412,8 @@ a {
     opacity: 0.8;
   } */
 
-  @media only screen and (max-device-width: 700px)
-  { 
+  @media (max-width: 600px)
+  {
   .posts {
     width: 700px;
     margin: 10px 10px 10px 10px ;
