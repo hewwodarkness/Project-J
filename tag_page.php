@@ -263,22 +263,24 @@ include 'goodconnection.php';
 
             <div class="right-block-avaiable-medals-list">
                 <?php foreach($row98 as $row98): ?>
-                    <div class="right-block-avaiable-medals-each">
+                    <a href="medal_page.php?id=<?=$row98['medal_id']?>">
+                        <div class="right-block-avaiable-medals-each">
 
-                        <div>
+                            <div>
 
-                            <img class="user-pfp"
-                                src="
-                                    <?=$row98['medal_avatar']?>
-                                ">
+                                <img class="user-pfp"
+                                    src="
+                                        <?=$row98['medal_avatar']?>
+                                    ">
+                            </div>
+
+                            <div class="right-block-avaiable-medals-each-name">
+                                <?=$row98['medal_name']?>
+                            </div>
+
+
                         </div>
-
-                        <div class="right-block-avaiable-medals-each-name">
-                            <?=$row98['medal_name']?>
-                        </div>
-
-
-                    </div>
+                    </a>
 
                 <?php endforeach; ?>
 

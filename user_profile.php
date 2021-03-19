@@ -83,23 +83,24 @@
 
             <div class="right-block-avaiable-medals-list">
                 <?php foreach($row7 as $row7): ?>
-                    <div class="right-block-avaiable-medals-each">
+                    <a href="medal_page.php?medal_id=<?=$row7['medal_id']?>">
+                        <div class="right-block-avaiable-medals-each">
 
-                        <div>
+                            <div>
 
-                            <img class="user-pfp"
-                                src="
-                                    <?=$row7['medal_avatar']?>
-                                ">
+                                <img class="user-pfp"
+                                    src="
+                                        <?=$row7['medal_avatar']?>
+                                    ">
+                            </div>
+
+                            <div class="right-block-avaiable-medals-each-name">
+                                <?=$row7['medal_name']?>
+                            </div>
+
+
                         </div>
-
-                        <div class="right-block-avaiable-medals-each-name">
-                            <?=$row7['medal_name']?>
-                        </div>
-
-
-                    </div>
-
+                    </a>
                 <?php endforeach; ?>
 
             </div>

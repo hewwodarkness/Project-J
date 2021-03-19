@@ -1,42 +1,131 @@
 <?php
-    require 'db.php';
-    include 'menu.php';
-    include 'goodconnection.php';
-    $id = $_GET['id'];
-
-    $sql_select4 =  "SELECT *
-                    FROM users
-                    WHERE id ='$id'
+require 'db.php';
+include("menu.php");
+include 'goodconnection.php';
+    $id = $_GET['medal_id'];
+    $id1 = $_GET['medal_id'];
+//
+//
+//
+    $sql_select4 =  "SELECT distinct tag_id, tag_name, tag_description, tag_picture
+                    FROM tags
+                    WHERE tag_id ='$id'
                     ";
 
     $result4 = mysqli_query($conn, $sql_select4);
     $row4 = mysqli_fetch_array($result4, MYSQLI_ASSOC);
+//
+//
+//
+    $sql_select99 =    "SELECT distinct u.id, u.full_name, u.avatar, t.dateJoined
+                        From users u
+                        INNER JOIN tags_moderators t
+                        ON u.id = t.user_id
+                        WHERE tag_id ='$id'
+                        ";
+
+    $result99 = mysqli_query($conn, $sql_select99);
+
+    if (!$result99) {
+        die('Invalid query: ' . mysqli_error($conn));
+    }
+
+    $row99 = mysqli_fetch_all($result99, MYSQLI_ASSOC);
 
 
-    $sql_select =  "SELECT *
+    //
+    //
+    //
+
+    $sql_select98 =    "SELECT distinct u.medal_id, u.medal_name, u.medal_avatar
+                        From tags_medals u
+                        INNER JOIN tags t
+                        ON u.tag_id = t.tag_id
+                        WHERE u.tag_id ='$id'
+                        ";
+
+    $result98 = mysqli_query($conn, $sql_select98);
+
+    if (!$result98) {
+        die('Invalid query: ' . mysqli_error($conn));
+    }
+
+    $row98 = mysqli_fetch_all($result98, MYSQLI_ASSOC);
+
+//
+//
+//
+    $sql_select =  "SELECT distinct p.post_id, p.user_id, p.text, p.image, p.dateCreated, p.comment_id
                     FROM post p
-                    WHERE p.user_id ='$id'
-                    ORDER BY p.dateCreated DESC
+                    INNER JOIN post_tags t
+                    ON p.post_id = t.post_id
+                    INNER JOIN tags m
+                    ON t.tag_id = '$id'
+                    order by dateCreated DESC
                     ";
+
+
     $result = mysqli_query($conn, $sql_select);
+
+    if (!$result) {
+        die('Invalid query: ' . mysqli_error($conn));
+    }
+
     $row = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
-    // $sql_select7 =  "SELECT distinct *
-    //                 FROM tags_medals t
-    //                 INNER JOIN users_medals u
-    //                 ON t.user_id = '$id'
-    //                 WHERE t.medal_id = u.medal_id
-    //                 ";
-    $sql_select7 =  "SELECT *
-                     FROM users_medals u
-                     INNER JOIN tags_medals t
-                     ON u.user_id = '$id'
-                     WHERE u.medal_id = t.medal_id
-    ";
-    $result7 = mysqli_query($conn, $sql_select7);
-    $row7 = mysqli_fetch_all($result7, MYSQLI_ASSOC);
+// // // // // // 
+// // // // // // 
+// // // // // // 
+
+    $sql_select12 =  "SELECT COUNT(*) as count FROM tags_followers WHERE tag_id = '$id'";
+
+    $result12 = mysqli_query($conn, $sql_select12);
+
+    if (!$result12) {
+        die('Invalid query: ' . mysqli_error($conn));
+    }
+
+    $row12 = mysqli_fetch_array($result12, MYSQLI_ASSOC);
+
+// // // // // // 
+// // // // // // 
+// // // // // // 
+
+    $sql_select13 =  "SELECT COUNT(*) as count FROM post_tags WHERE tag_id = '$id'";
+
+    $result13 = mysqli_query($conn, $sql_select13);
+
+    if (!$result13) {
+        die('Invalid query: ' . mysqli_error($conn));
+    }
+
+    $row13 = mysqli_fetch_array($result13, MYSQLI_ASSOC);
 
 
+    $db_query15 = "UPDATE tags SET `tag_count_visit` = `tag_count_visit` + 1 WHERE tag_id = '$id'";
+
+    mysqli_query($conn, $db_query15);
+
+
+
+    
+    $sql_select678 =  "SELECT distinct medal_avatar, medal_name
+                    FROM tags_medals
+                    WHERE medal_id ='$id1'
+                    ";
+
+    $result678 = mysqli_query($conn, $sql_select678);
+    $row6788 = mysqli_fetch_array($result678, MYSQLI_ASSOC);
+
+
+    $sql_select136 =  "SELECT COUNT(*) as count FROM users_medals WHERE medal_id = '$id1'";
+
+    $result136 = mysqli_query($conn, $sql_select136); 
+    $row136 = mysqli_fetch_array($result136, MYSQLI_ASSOC);
+
+
+//
+//
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -54,7 +143,51 @@
     <div class="intro">
 
 <div></div>
-<div></div>
+<div class="tag-information">
+
+    <div class="tag-information-top">
+
+        <div class="tag-information-top-pfp-edit">
+            <img class="tag-information-image" src="<?=$row6788['medal_avatar']?>" alt="">
+
+        </div>
+
+<!--  -->
+<!-- nlf means name, link and followers -->
+<!--  -->
+
+        <div class="tag-information-nlf">
+
+            <div class="tag-information-name">
+                <?=$row6788['medal_name']?>
+            </div>
+
+            <p class="tag-information-description">
+                <?php if ($row6788['tag_description'] != NULL) :
+                        echo $row6788['tag_description'];
+                    else :
+                        echo "Just a regular medal";
+                    endif;?>
+
+                
+            </p>
+            <div class="tag-information-bottom">
+
+                <div class="tag-information-bottom-info">
+                    Users have this medal: <?=$row12['count']?>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <div class="tag-information-text">
+
+
+    </div>
+
+</div>
 <div class="main1">
     <?php
         include 'div_posts.php';
@@ -62,15 +195,10 @@
 
     <div class="right-block">
         <div class="right-block-tags">
-        
-                <img class="user-info-img" src="uploads/<?php if ( $row4['avatar'] != NULL) :
-                    echo $row4['avatar'];
-                else :
-                    echo "avatar-guest.png";
-                endif;
-                ?>" alt="">
+            
+                <img class="user-info-img" src="uploads/<?php $row678['medal_avatar']?>" alt="">
                 <p class="user-info-name">
-                    <?=$row4['full_name']?>
+                    <?=$row678['medal_name']?>
                 </p>
                 <p class="user-info-link">
                     u/userlink
