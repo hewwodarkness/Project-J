@@ -263,7 +263,7 @@ include 'goodconnection.php';
 
             <div class="right-block-avaiable-medals-list">
                 <?php foreach($row98 as $row98): ?>
-                    <a href="medal_page.php?id=<?=$row98['medal_id']?>">
+                    <a href="medal_page.php?medal_id=<?=$row98['medal_id']?>">
                         <div class="right-block-avaiable-medals-each">
 
                             <div>

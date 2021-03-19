@@ -110,9 +110,9 @@ include 'goodconnection.php';
 
     
     $sql_select678 =  "SELECT distinct medal_avatar, medal_name
-                    FROM tags_medals
-                    WHERE medal_id ='$id1'
-                    ";
+                        FROM tags_medals
+                        WHERE medal_id ='$id1'
+                        ";
 
     $result678 = mysqli_query($conn, $sql_select678);
     $row6788 = mysqli_fetch_array($result678, MYSQLI_ASSOC);
@@ -123,6 +123,22 @@ include 'goodconnection.php';
     $result136 = mysqli_query($conn, $sql_select136); 
     $row136 = mysqli_fetch_array($result136, MYSQLI_ASSOC);
 
+
+    
+    $sql_select6781 =  "SELECT distinct m.user_id, u.full_name, u.avatar, u.dateRegister
+                        FROM users_medals m
+                        INNER JOIN users u 
+                        ON m.medal_id = '$id1'
+                        WHERE m.user_id = u.id
+                        ";
+
+    $result6781 = mysqli_query($conn, $sql_select6781);
+
+    if (!$result6781) {
+        die('Invalid query: ' . mysqli_error($conn));
+    }
+    
+    $row6781 = mysqli_fetch_all($result6781, MYSQLI_ASSOC);
 
 //
 //
@@ -135,22 +151,23 @@ include 'goodconnection.php';
 
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/tag_page.css">
+    <link rel="stylesheet" href="css/medal_page.css">
     <link rel="stylesheet" href="css/user_profile.css">
     <title>User Page</title>
 </head>
 <body>
 
-    <div class="intro">
+<div class="intro">
 
-<div></div>
-<div class="tag-information">
+    <div></div>
+    <div class="tag-information">
 
-    <div class="tag-information-top">
+        <div class="tag-information-top">
 
-        <div class="tag-information-top-pfp-edit">
-            <img class="tag-information-image" src="<?=$row6788['medal_avatar']?>" alt="">
+            <div class="tag-information-top-pfp-edit">
+                <img class="tag-information-image" src="<?=$row6788['medal_avatar']?>" alt="">
 
-        </div>
+            </div>
 
 <!--  -->
 <!-- nlf means name, link and followers -->
@@ -163,18 +180,12 @@ include 'goodconnection.php';
             </div>
 
             <p class="tag-information-description">
-                <?php if ($row6788['tag_description'] != NULL) :
-                        echo $row6788['tag_description'];
-                    else :
-                        echo "Just a regular medal";
-                    endif;?>
-
-                
+              Just a regular medal
             </p>
             <div class="tag-information-bottom">
 
                 <div class="tag-information-bottom-info">
-                    Users have this medal: <?=$row12['count']?>
+                    Users have this medal: <?=$row136['count']?>
                 </div>
 
             </div>
@@ -189,49 +200,38 @@ include 'goodconnection.php';
 
 </div>
 <div class="main1">
-    <?php
-        include 'div_posts.php';
-    ?>
+<div>
+    <?php foreach($row6781 as $row6781): ?>
+        <div class="posts12">
+            <img class="user-pfp"
+            src="uploads/<?php
+                                if ( $row6781['avatar'] != NULL) :
+                                    echo $row6781['avatar'];
+                                else :
+                                    echo "avatar-guest.png";
+                                endif;
+                ?>">
+                <p class="pp">
+                    <?php echo $row6781['full_name']; ?>
+                </p>
+                <p class="pp">
+                    <?php echo $row6781['dateRegister']; ?>
+                </p>
+       </div>
+    <?php endforeach; ?>
+</div>
+    
 
     <div class="right-block">
         <div class="right-block-tags">
             
-                <img class="user-info-img" src="uploads/<?php $row678['medal_avatar']?>" alt="">
+                <img class="user-info-img" src="<?=$row6788['medal_avatar']?>" alt="">
                 <p class="user-info-name">
-                    <?=$row678['medal_name']?>
+                    <?=$row6788['medal_name']?>
                 </p>
                 <p class="user-info-link">
-                    u/userlink
+                    Just a regular medal
                 </p>
-        </div>
-        <div class="right-block-avaiable-medals">
-            <p>
-                Medals user have:
-            </p>
-
-            <div class="right-block-avaiable-medals-list">
-                <?php foreach($row7 as $row7): ?>
-                    <div class="right-block-avaiable-medals-each">
-
-                        <div>
-
-                            <img class="user-pfp"
-                                src="
-                                    <?=$row7['medal_avatar']?>
-                                ">
-                        </div>
-
-                        <div class="right-block-avaiable-medals-each-name">
-                            <?=$row7['medal_name']?>
-                        </div>
-
-
-                    </div>
-
-                <?php endforeach; ?>
-
-            </div>
-
         </div>
     </div>
 
