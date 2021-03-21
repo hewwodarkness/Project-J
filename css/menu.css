@@ -92,7 +92,7 @@ html {
 }
 
 /* @media only screen and (max-device-width: 700px) */
-@media (max-width: 600px)
+/* @media (max-width: 600px)
 {
     .right-block {
       display: none;
@@ -104,4 +104,4 @@ html {
       width: 700px;
     }
     
- }
+ } */
